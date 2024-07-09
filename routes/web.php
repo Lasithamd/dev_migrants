@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[HomeController::class,'index']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/ads-categories',[AdsController::class, 'loadList']);
+Route::get('/ads-details/{id}',[AdsController::class,'show'])->name('ads-details');
+Route::get('/ads-categories/{id}',[AdsController::class, 'loadCategories'])->name('ads-categories');
+
+Route::get('/ads/register', [AdsController::class,'register'])->name('ads.register');
+Route::post('/ads/register-next', [AdsController::class,'registerNext'])->name('register-next');
+Route::post('/ads/resgister-third', [AdsController::class,'resgisterThird'])->name('resgister-third');
+Route::post('/ads/final-step', [AdsController::class,'finalStep'])->name('final-step');

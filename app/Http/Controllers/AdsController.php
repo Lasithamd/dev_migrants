@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Ads;
 use App\Http\Requests\StoreAdsRequest;
 use App\Http\Requests\UpdateAdsRequest;
+use App\Services\AdsService;
+use App\Services\CategoryService;
+use App\Services\ImageService;
+use App\Services\SubCategoryService;
+use App\Services\LocationServices;
 
 class AdsController extends Controller
 {
@@ -13,6 +18,11 @@ class AdsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
@@ -82,5 +92,13 @@ class AdsController extends Controller
     public function destroy(Ads $ads)
     {
         //
+    }
+    public function register(CategoryService $categories, SubCategoryService $subcategories, LocationServices $location)
+    {
+       
+        $categories = $categories->getCategory();;
+        $subcategories = $subcategories->getOrderSubCat();
+        $districts = $location->getDistric();
+        return view('front.register.index', compact('categories', 'subcategories', 'districts'));
     }
 }
