@@ -19,14 +19,15 @@ return new class extends Migration
             $table->string('description');
             $table->integer('price');
             $table->integer('city_id');
-            $table->integer('category_id ');
-            $table->string('feature1 ');
+            $table->integer('category_id');
+            $table->integer('sub_category_id');
+            $table->string('feature1');
             $table->string('feature2');
             $table->string('feature3');
             $table->string('feature4');
             $table->string('feature5');
             $table->string('feature6');
-            $table->integer('user_id ');
+            $table->integer('user_id');
             $table->integer('slug');
             $table->timestamps();
         });

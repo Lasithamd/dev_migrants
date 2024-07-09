@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name_en');
             $table->string('name_si');
-            $table->string('name_ta');
             $table->integer('district_id');
             $table->string('postcode');
             $table->double('latitude');
