@@ -107,7 +107,7 @@
                     <div class="col-lg-5">
                         <div class="slider-text">
                            
-                            <h3 class="title">{{$ad->title}}</h3>
+                            <h3 class="title">{{$ad->name}}</h3>
                             <h5>LKR {{$ad->price}}</h5>
                             <span class="icon"><i class="fa fa-clock-o"></i><a href="#"> {{$ad->created_at}} </a></span>
                             <span class="icon"><i class="fa fa-map-marker"></i><a href="#"> </a></span>
@@ -219,7 +219,7 @@
 
                                     <div class="ad-info">
                                         <h3 class="item-price">LKR {{ $item->price }}</h3>
-                                        <h4 class="item-title"><a href="#">{{$item->title}}</a></h4>
+                                        <h4 class="item-title"><a href="#">{{$item->name}}</a></h4>
                                         <div class="item-cat">
                                             <span><a href="#">Electronics & Gedgets</a></span> /
                                             <span><a href="#">Tv & Video</a></span>

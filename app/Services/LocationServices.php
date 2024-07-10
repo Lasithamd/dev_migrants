@@ -26,4 +26,5 @@ class   LocationServices{
         ->where('cities.id', '=', $id)
         ->first();
     }
+    
 }

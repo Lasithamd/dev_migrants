@@ -4,6 +4,7 @@ namespace App\Services;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Ads;
+use Illuminate\Database\Eloquent\Model;
 
 class   AdsService{
 
@@ -20,7 +21,8 @@ class   AdsService{
         return  $ads;
 
     }
-
+    
+    
     public function getSingleAd(int $id){
 
      return DB::table('ads')
@@ -53,4 +55,18 @@ class   AdsService{
         }
         return $data;
     }
+
+    public function getAdsSingleDetail(Array $id){
+        $ad = DB::table('ads')
+        ->leftJoin('categories', 'categories.id', '=', 'ads.category_id')
+        ->leftJoin('sub_categories', 'sub_categories.id', '=', 'ads.sub_category_id')
+        ->leftJoin('cities', 'cities.id', '=', 'ads.city_id')
+        ->select('ads.*', 'categories.name as cname', 'sub_categories.name as subname')
+        ->where('ads.id', $id)
+        ->first();
+        
+
+        print_r( $id+'sdsd'); die();
+    }
+
 }

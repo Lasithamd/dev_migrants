@@ -2,6 +2,7 @@
 namespace App\Services;
 
 use App\Models\Image;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 
@@ -31,5 +32,13 @@ class   ImageService{
             'status' => 0,
             'link' => $name
         ]);
+    }
+    public function getGalleryImage(Model $model){
+        $image = DB::table('images')
+        ->leftJoin('ads', 'ads.id', '=', 'images.ads_id')
+        ->select('images.*')->where('images.ads_id', $model)->where('images.status', 0)
+        ->get();
+        return $image;
+
     }
 }
