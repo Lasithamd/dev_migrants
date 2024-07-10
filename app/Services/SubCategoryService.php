@@ -16,8 +16,9 @@ class   SubCategoryService{
     }
     public function getOrderSubCat(){
         return SubCategory::where('status', '=', '1')->orderBy('category_id')->get();
-
-
+    }
+    public function findSubCat(int $id){
+        return SubCategory::find($id);
     }
 
 }

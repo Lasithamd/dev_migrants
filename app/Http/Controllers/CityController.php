@@ -46,9 +46,7 @@ class CityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(int $id)
-    {
- 
-        //
+    {  //
       $city = City::where('district_id', $id)->get();
       return response()->json($city);
     }

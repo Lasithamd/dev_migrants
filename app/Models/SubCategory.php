@@ -14,6 +14,6 @@ class SubCategory extends Model
         'name','category_id', 'status'
     ];
 
-    protected $primaryKey = 'sub_categiry_id';
+    protected $primaryKey = 'id';
 }
 

@@ -13,6 +13,6 @@ class Category extends Model
         'name','image', 'status'
     ];
 
-    protected $primaryKey = 'category_id';
+    protected $primaryKey = 'id';
 }
 

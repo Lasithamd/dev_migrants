@@ -25,4 +25,8 @@ class   CategoryService{
 
         return $ads;
     }
+    public function findCategory(int $id){
+        return Category::find($id);
+
+    }
 }
