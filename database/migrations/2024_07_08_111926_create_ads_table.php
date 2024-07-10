@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('feature5');
             $table->string('feature6');
             $table->integer('user_id');
-            $table->integer('slug');
+            $table->string('slug');
             $table->timestamps();
         });
     }

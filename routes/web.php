@@ -26,5 +26,10 @@ Route::get('/ads-categories/{id}',[AdsController::class, 'loadCategories'])->nam
 
 Route::get('/ads/register', [AdsController::class,'register'])->name('ads.register');
 Route::post('/ads/register-next', [AdsController::class,'registerNext'])->name('register-next');
-Route::post('/ads/resgister-third', [AdsController::class,'resgisterThird'])->name('resgister-third');
+Route::get('/ads/resgister-third', [AdsController::class,'resgisterThird'])->name('resgister-third');
 Route::post('/ads/final-step', [AdsController::class,'finalStep'])->name('final-step');
+Route::get('/ads/myads', [AdsController::class,'myads'])->name('ads.myads');
+
+
+Route::get('/ads-details/{id}',[AdsController::class,'show'])->name('ads-details');
+Route::get('/ads-categories/{id}',[AdsController::class, 'loadCategories'])->name('ads-categories');

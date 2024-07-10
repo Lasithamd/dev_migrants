@@ -61,7 +61,7 @@
                     <div class="featured">
                         <a href="{{ route('ads-details', ['id' => $item->id]) }}"><div class="featured-image" style="background-image:url({{ asset('/uploads/featurd/' . $item->imageLink) }})"></div></a>
                         <div class="ad-info">
-                            <h4 class="item-title"><a href="#"><a href="{{ route('ads-details', ['id' => $item->id]) }}">{{$item->title}}</a></h4>
+                            <h4 class="item-title"><a href="#"><a href="{{ route('ads-details', ['id' => $item->id]) }}">{{$item->name}}</a></h4>
                             <h6 class="item-price">LKR {{$item->price}}</h5>
                             <div class="item-cat">
                                 <span><a href="#">{{$item->cname}}>{{$item->subname}}</a></span>
@@ -113,7 +113,7 @@
     
                             <div class="ad-info">
                                 <h3 class="item-price"></h3>
-                                <h4 class="item-title"><a href="#">{{$item->title}}</a>
+                                <h4 class="item-title"><a href="#">{{$item->name}}</a>
                                 </h4>
                                 <div class="item-cat">Short Info
                                     <span><a href="#">{{ $item->cname }}</a></span> >
@@ -154,7 +154,7 @@
     
                             <div class="ad-info">
                                 <h3 class="item-price"></h3>
-                                <h4 class="item-title"><a href="#">{{$item->title}}</a>
+                                <h4 class="item-title"><a href="#">{{$item->name}}</a>
                                 </h4>
                                 <div class="item-cat">
                                     <span><a href="#">{{ $item->cname }}</a></span> >
@@ -193,7 +193,7 @@
                         <div class="item-info  col-md-7 col-lg-7">
                             <div class="ad-info">
                                 <h3 class="item-price"></h3>
-                                <h4 class="item-title"><a href="#">{{$item->title}}</a>
+                                <h4 class="item-title"><a href="#">{{$item->name}}</a>
                                 </h4>
                                 <div class="item-cat">
                                     <span><a href="#">{{ $item->cname }}</a></span> >

@@ -12,7 +12,7 @@
             <div class="adpost-details">
                 <div class="row">
                     <div class="col-lg-8">
-                        <form action="{{ route('resgister-third') }}" method="POST">
+                        <form action="{{ route('resgister-third') }}">
                             @csrf
                             <fieldset>
                                 <div class="hidden">
@@ -60,7 +60,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <label class=" col-form-label">Price </label><input type="number"
-                                                    class="form-control" name="feature6" placeholder="Current mileage">
+                                                    class="form-control" name="price" placeholder="Current mileage">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -121,7 +121,7 @@
                                             <div class="form-group row">
                                                 <label class=" col-form-label">Title <span
                                                         class="text-danger">*</span></label> <input type="text"
-                                                    class="form-control" id="title" name="title"
+                                                    class="form-control" id="name" name="name"
                                                     placeholder="Title for your Ad">
                                             </div>
                                             <div class="form-group row">
