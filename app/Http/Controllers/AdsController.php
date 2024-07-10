@@ -123,4 +123,7 @@ class AdsController extends Controller
         $categories = $categories->findCategory($subcategories['category_id']);
         return view('front.register.second', compact('categories', 'subcategories', 'location'));
     }
+    public function resgisterThird(){
+        
+    }
 }
