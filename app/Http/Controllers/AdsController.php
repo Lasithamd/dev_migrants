@@ -118,12 +118,38 @@ class AdsController extends Controller
         $data = $request->all();
 
 
-        $location=$location->getDistricDetails($data['city']);
+       
         $subcategories =$subcategories->findSubCat($data['sub_category_id']);
         $categories = $categories->findCategory($subcategories['category_id']);
         return view('front.register.second', compact('categories', 'subcategories', 'location'));
     }
-    public function resgisterThird(){
-        
+    public function resgisterThird(Request $request, AdsService $ads,CategoryService $categories, LocationServices $location, SubCategoryService $subcategories)
+    {
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'price' => 'required',
+
+        ]);
+
+        $data = $request->all();
+        $data['slug']=$ads->slugGenerator($data['title'], $data['sub_category_id'], $data['city_id']);
+        $data = $ads->checkFeature($data);       
+        $data['user_id']  = 1;
+
+        $ads = Ads::create($data);
+        // $adsId = $ad->id;
+        $location=$location->getDistricDetails($data['city_id']);
+        // $location = DB::table('districts')
+        //     ->join('cities', 'districts.id', '=', 'cities.district_id')
+        //     ->select('*', 'districts.name_en')
+        //     ->where('cities.id', '=', $data['city_id'])
+        //     ->first();
+        $subcategories =$subcategories->findSubCat($data['sub_category_id']);
+        $categories = $categories->findCategory($subcategories['category_id']);
+        // $categories = Category::find($data['category_id']);
+        // $subcategories = SubCategory::find($data['sub_category_id']);
+
+        return view('front.register.third', compact('categories', 'subcategories', 'location', 'ads'));
     }
 }
