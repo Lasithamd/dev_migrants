@@ -11,7 +11,7 @@ class AiController extends Controller
 
     public function getAIContent(Request $data)
     {
-        print_r('dsdsd'); die();
+      
         $client = new \GuzzleHttp\Client();
         
         try {
