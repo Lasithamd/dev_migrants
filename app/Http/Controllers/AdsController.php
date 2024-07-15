@@ -21,7 +21,7 @@ class AdsController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index()
@@ -61,17 +61,16 @@ class AdsController extends Controller
        
         //---- 07-102024
         $adId = $ads->id;
-        print_r($adId); die();
         $adsData = $ad->getAds();;
         // Retrieve the ad data based on the provided ID
         // $ad = $ad->getAdsSingleDetail($ads);
-        $ad = DB::table('ads')
-        ->leftJoin('categories', 'categories.id', '=', 'ads.category_id')
-        ->leftJoin('sub_categories', 'sub_categories.id', '=', 'ads.sub_category_id')
-        ->leftJoin('cities', 'cities.id', '=', 'ads.city_id')
-        ->select('ads.*', 'categories.name as cname', 'sub_categories.name as subname')
-        ->where('ads.id', $ads)
-        ->first();
+        // $ad = DB::table('ads')
+        // ->leftJoin('categories', 'categories.id', '=', 'ads.category_id')
+        // ->leftJoin('sub_categories', 'sub_categories.id', '=', 'ads.sub_category_id')
+        // ->leftJoin('cities', 'cities.id', '=', 'ads.city_id')
+        // ->select('ads.*', 'categories.name as cname', 'sub_categories.name as subname')
+        // ->where('ads.id', $ads)
+        // ->first();
 
      
 
@@ -150,7 +149,9 @@ class AdsController extends Controller
         //     'description' => 'required',
         //     'price' => 'required',
         // ]);
-      
+        Auth::user()->id;
+
+
         $data = $request->all();
         $data['slug']=$ads->slugGenerator($data['name'], $data['sub_category_id'], $data['city_id']);
         $data = $ads->checkFeature($data);       

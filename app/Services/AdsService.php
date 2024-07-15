@@ -4,6 +4,7 @@ namespace App\Services;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Ads;
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 
 class   AdsService{
@@ -68,5 +69,25 @@ class   AdsService{
 
         print_r( $id+'sdsd'); die();
     }
+    public function sendAIRequest(Request $data)
+    {
+        $client = new \GuzzleHttp\Client();
 
+        try {
+            $response = $client->request('POST', 'https://api.openai.com/v1/chat/completions', [
+                'headers' => [
+                    'Authorization' => 'Bearer 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',
+                    'Content-Type' => 'application/json',
+                ],
+                'json' => [
+                    'model' => 'gpt-3.5-turbo',
+                    'temperature' => 0.7,
+                    'messages' => [['role' => 'user', 'content' => $data->message]],
+                ],
+            ]);
+        }
+        catch(Exception $e){
+            
+        }
+    }
 }
