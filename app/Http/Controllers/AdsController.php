@@ -59,7 +59,7 @@ class AdsController extends Controller
     public function show(Ads $ads, AdsService $ad, ImageService $img )
     {
        
-        //---- 07-102024
+        //---- 07-102024PHP
         $adId = $ads->id;
         print_r($adId); die();
         $adsData = $ad->getAds();;
