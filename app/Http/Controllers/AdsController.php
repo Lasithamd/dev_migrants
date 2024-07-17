@@ -192,7 +192,14 @@ class AdsController extends Controller
         return view('front.ads.myads', compact('adsData', 'image'));
     }
 
-    public function addComment(Request $request){
-        
-    }
+    public function search(Request $request, AdsService $adsService,CategoryService $category, ImageService $image){
+        $text = 'List';    
+        $query = $request->all();
+        $categories=$category->categoryCount();
+        $image = $image->getAdsImages();
+        $adsData=$adsService->searchAds($query);
+        return view('front.ads-list', compact('adsData', 'categories','image',));
+    }   
+
+
 }

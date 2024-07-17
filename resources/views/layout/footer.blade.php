@@ -48,7 +48,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="footer-widget news-letter">
                             <h3>Newsletter</h3>
-                            <p>Migrants Sale is Worldest leading classifieds platform that brings!</p>
+                            <p>MigrantsSales.lk is the world's leading classifieds platform!</p>
 
                             <form action="#">
                                 <input type="email" class="form-control" placeholder="Your email id">
@@ -61,7 +61,7 @@
         </section>
         <div class="footer-bottom clearfix text-center">
             <div class="container">
-                <p>Copyright &copy; 2018. Developed by <a href="http://themeregion.com/">ThemeRegion</a></p>
+                <p>Copyright &copy; 2018. Developed by <a href="">MS Sale</a></p>
             </div>
         </div>
     </footer>

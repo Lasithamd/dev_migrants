@@ -36,3 +36,4 @@ Route::get('/ads-details/{id}',[AdsController::class,'show'])->name('ads-details
 Route::get('/ads-categories/{id}',[AdsController::class, 'loadCategories'])->name('ads-categories');
 Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
 
+Route::get('serach-ad', [AdsController::class, 'search'])->name('serach-ad');

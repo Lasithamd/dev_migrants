@@ -8,17 +8,8 @@
                 <h1 class="title">Shop, Save, and Discover </h1>
                 <h3>Your Online Marketplace for Migrants in Sri Lanka</h3>
                 <div class="banner-form">
-                    <form action="#">
-                        <div class="dropdown category-dropdown">
-                            <a data-toggle="dropdown" href="#"><span class="change-text">Select
-                                    Category</span> <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu category-change">
-                                @foreach ($category as $categoryItem)
-                                <li><a href="#">{{$categoryItem->name}}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Type Your key word">
+                    <form action="{{ route('serach-ad')}}" method="GET">
+                        <input type="text" class="form-control" placeholder="Type Your key word" name="keyword">
                         <button type="submit" class="form-control" value="Search">Search</button>
                     </form>
                 </div>
@@ -103,7 +94,7 @@
                     <div class="ad-item row">
                         <div class="item-image-box col-md-5 col-lg-5">
                             <div class="item-image">
-                                <a href="details.html"><img src="{{ asset('/uploads/featurd/' . $item->imageLink) }}" alt="Image"
+                                <a href="{{ route('ads-details', ['id' => $item->id]) }}"><img src="{{ asset('/uploads/featurd/' . $item->imageLink) }}" alt="Image"
                                         class="img-fluid"></a>
                                 <a href="#" class="verified" data-toggle="tooltip" data-placement="left"
                                     title="Verified"></a>
@@ -112,27 +103,15 @@
                         <div class="item-info  col-md-7 col-lg-7">
     
                             <div class="ad-info">
-                                <h3 class="item-price"></h3>
-                                <h4 class="item-title"><a href="#">{{$item->name}}</a>
+                                <h4 class="item-title"><a href="{{ route('ads-details', ['id' => $item->id]) }}">{{$item->name}}</a>
                                 </h4>
+                                <h3 class="item-price">LKR {{$item->price}}</h3>
                                 <div class="item-cat">Short Info
                                     <span><a href="#">{{ $item->cname }}</a></span> >
                                     <span><a href="#">{{ $item->subname }}</a></span>
                                 </div>
                             </div>                    
-                            <div class="ad-meta">
-                                <div class="meta-content">
-                                    <span class="dated"><a href="#">7 Jan, 16 10:10 pm </a></span>
-                                    
-                                </div>
-    
-                                <div class="user-option pull-right">
-                                    <a href="#" data-toggle="tooltip" data-placement="top"
-                                        title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-                                    <a class="online" href="#" data-toggle="tooltip" data-placement="top"
-                                        title="Dealer"><i class="fa fa-suitcase"></i> </a>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     @endforeach
@@ -144,7 +123,7 @@
                     <div class="ad-item row">
                         <div class="item-image-box col-md-5 col-lg-5">
                             <div class="item-image">
-                                <a href="details.html"><img src="{{ asset('/uploads/featurd/' . $item->imageLink) }}" alt="Image"
+                                <a href="{{ route('ads-details', ['id' => $item->id]) }}"><img src="{{ asset('/uploads/featurd/' . $item->imageLink) }}" alt="Image"
                                         class="img-fluid"></a>
                                 <a href="#" class="verified" data-toggle="tooltip" data-placement="left"
                                     title="Verified"></a>
@@ -153,27 +132,16 @@
                         <div class="item-info   col-md-7 col-lg-7">
     
                             <div class="ad-info">
-                                <h3 class="item-price"></h3>
-                                <h4 class="item-title"><a href="#">{{$item->name}}</a>
+                              
+                                <h4 class="item-title"><a href="{{ route('ads-details', ['id' => $item->id]) }}">{{$item->name}}</a>
                                 </h4>
+                                <h3 class="item-price">LKR {{$item->price}}</h3>
                                 <div class="item-cat">
                                     <span><a href="#">{{ $item->cname }}</a></span> >
                                     <span><a href="#">{{ $item->subname }}</a></span>
                                 </div>
                             </div>                    
-                            <div class="ad-meta">
-                                <div class="meta-content">
-                                    <span class="dated"><a href="#">7 Jan, 16 10:10 pm </a></span>
-                                    
-                                </div>
-    
-                                <div class="user-option pull-right">
-                                    <a href="#" data-toggle="tooltip" data-placement="top"
-                                        title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-                                    <a class="online" href="#" data-toggle="tooltip" data-placement="top"
-                                        title="Dealer"><i class="fa fa-suitcase"></i> </a>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     @endforeach
@@ -184,7 +152,7 @@
                     <div class="ad-item row">
                         <div class="item-image-box  col-md-5 col-lg-5">
                             <div class="item-image">
-                                <a href="details.html"><img src="{{ asset('/uploads/featurd/' . $item->imageLink) }}" alt="Image"
+                                <a href="{{ route('ads-details', ['id' => $item->id]) }}"><img src="{{ asset('/uploads/featurd/' . $item->imageLink) }}" alt="Image"
                                         class="img-fluid"></a>
                                 <a href="#" class="verified" data-toggle="tooltip" data-placement="left"
                                     title="Verified"></a>
@@ -192,26 +160,15 @@
                         </div>
                         <div class="item-info  col-md-7 col-lg-7">
                             <div class="ad-info">
-                                <h3 class="item-price"></h3>
-                                <h4 class="item-title"><a href="#">{{$item->name}}</a>
+                                <h4 class="item-title"><a href="{{ route('ads-details', ['id' => $item->id]) }}">{{$item->name}}</a>
                                 </h4>
+                                <h3 class="item-price">LKR {{$item->price}}</h3>
                                 <div class="item-cat">
                                     <span><a href="#">{{ $item->cname }}</a></span> >
                                     <span><a href="#">{{ $item->subname }}</a></span>
                                 </div>
                             </div>                    
-                            <div class="ad-meta">
-                                <div class="meta-content">
-                                    <span class="dated"><a href="#">7 Jan, 16 10:10 pm </a></span>
-                                    
-                                </div>
-                                <div class="user-option pull-right">
-                                    <a href="#" data-toggle="tooltip" data-placement="top"
-                                        title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-                                    <a class="online" href="#" data-toggle="tooltip" data-placement="top"
-                                        title="Dealer"><i class="fa fa-suitcase"></i> </a>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     @endforeach

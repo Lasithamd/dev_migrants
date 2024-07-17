@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use App\Models\Ads;
 use App\Models\Comment;
 use Exception;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class   AdsService{
@@ -95,4 +96,15 @@ class   AdsService{
     public function getComments($id){
         return Comment::where('ads_id',$id)->get();
     }
+
+    public function searchAds($query){
+        $keyword=$query['keyword'];
+        // Simple search
+       return Ads::where('name', 'LIKE', "%{$keyword}%")
+                    ->orWhere('description', 'LIKE', "%{$keyword}%")
+                    ->get();
+
+    }
+
+
 }
