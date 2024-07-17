@@ -149,8 +149,8 @@
                           <div class="card">
                                   <div class="card-body">
                                     <h5 class="card-title">Post a Comment</h5>
-                                    <form method="POST">
-                                     @csrf
+                                    <form method="POST" action="{{ route('comment.store')}}">
+                                        @csrf
                                  <input type="text" hidden value="{{ $ad->id }}" name="ads_id">
                                       <div class="form-group">
                                         <textarea class="form-control" name="comment" id="comment-input" rows="3" placeholder="Write your comment here"></textarea>
@@ -182,6 +182,7 @@
                             <div class="featured-top">
                                 <h4>Recommended Ads for You</h4>
                             </div>
+                            <div class="featured-content">
                             @foreach($adsData as $item)
                             <div class="ad-item row">
 
@@ -204,28 +205,17 @@
                                         <h3 class="item-price">LKR {{ $item->price }}</h3>
                                         <h4 class="item-title"><a href="#">{{$item->name}}</a></h4>
                                         <div class="item-cat">
-                                            <span><a href="#">Electronics & Gedgets</a></span> /
-                                            <span><a href="#">Tv & Video</a></span>
+                                            <span><a href="#">{{$item->cname}}</a></span> /
+                                            <span><a href="#">{{$item->subname}}</a></span>
+                                           <p><span class="dated"><a href="#">{{ $item->updated_at }} </a></span></p> 
                                         </div>
                                     </div>
 
-                                    <div class="ad-meta">
-                                        <div class="meta-content">
-                                            <span class="dated"><a href="#">{{ $item->updated_at }} </a></span>
-                                            <a href="#" class="tag"><i class="fa fa-tags"></i> New</a>
-                                        </div>
-
-                                        <div class="user-option pull-right">
-                                            <a href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
-                                            <a class="online" href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Individual"><i class="fa fa-user"></i> </a>
-                                        </div>
-                                    </div>
+                                 
                                 </div>
                             </div>
                             @endforeach
-                            
+                        </div>
                         </div>
                     </div>
                    

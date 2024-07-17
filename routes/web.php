@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdsController;
 
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,3 +34,5 @@ Route::get('/ads/myads', [AdsController::class,'myads'])->name('ads.myads');
 
 Route::get('/ads-details/{id}',[AdsController::class,'show'])->name('ads-details');
 Route::get('/ads-categories/{id}',[AdsController::class, 'loadCategories'])->name('ads-categories');
+Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
+

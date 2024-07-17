@@ -37,7 +37,7 @@ class   ImageService{
         return Image::where('ads_id', $id)->where('status', 2)->get();
     }
     public function getFeaturdyImage(){
-        $image = Image::all();
+        $image = Image::where('status',1)->get();
         return $image;
 
     }

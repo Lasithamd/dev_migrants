@@ -1,51 +1,51 @@
-jQuery(function ($) {
+jQuery(function($) {
     "use strict";
-    (function () {
+    (function() {
         $.scrollUp();
     })();
-    (function () {
+    (function() {
         var textAreas = document.getElementsByTagName("textarea");
-        Array.prototype.forEach.call(textAreas, function (elem) {
+        Array.prototype.forEach.call(textAreas, function(elem) {
             elem.placeholder = elem.placeholder.replace(/\\n/g, "\n");
         });
     })();
-    (function () {
-        $("document").ready(function () {
+    (function() {
+        $("document").ready(function() {
             $(".more-category.one").hide();
-            $(".show-more.one").click(function () {
+            $(".show-more.one").click(function() {
                 $(".more-category.one").show();
                 $(".show-more.one").hide();
             });
         });
-        $("document").ready(function () {
+        $("document").ready(function() {
             $(".more-category.two").hide();
-            $(".show-more.two").click(function () {
+            $(".show-more.two").click(function() {
                 $(".more-category.two").show();
                 $(".show-more.two").hide();
             });
-        });       
+        });
         $('document').ready(function() {
-          $('#negotiableYes').change(function() {
-            if ($(this).is(':checked')) {
-              $('#price').prop('disabled', true);
-            } else {
-              $('#price').prop('disabled', false);
-            }
-          });
+            $('#negotiableYes').change(function() {
+                if ($(this).is(':checked')) {
+                    $('#price').prop('disabled', true);
+                } else {
+                    $('#price').prop('disabled', false);
+                }
+            });
         });
     })();
-    (function () {
+    (function() {
         $("#price").slider();
     })();
-    (function () {
-        $(".language-dropdown").on("click", ".language-change a", function (ev) {
+    (function() {
+        $(".language-dropdown").on("click", ".language-change a", function(ev) {
             if ("#" === $(this).attr("href")) {
                 ev.preventDefault();
                 var parent = $(this).parents(".language-dropdown");
                 parent.find(".change-text").html($(this).html());
             }
         });
-        $(".category-dropdown").on("click", ".category-change a", function (ev) {
+        $(".category-dropdown").on("click", ".category-change a", function(ev) {
             if ("#" === $(this).attr("href")) {
                 ev.preventDefault();
                 var parent = $(this).parents(".category-dropdown");
@@ -53,18 +53,18 @@ jQuery(function ($) {
             }
         });
     })();
-    (function () {
+    (function() {
         $('[data-toggle="tooltip"]').tooltip();
     })();
-    (function () {
-        $(".collapse").on("show.bs.collapse", function () {
+    (function() {
+        $(".collapse").on("show.bs.collapse", function() {
             var id = $(this).attr("id");
             $('a[href="#' + id + '"]')
                 .closest(".panel-heading")
                 .addClass("active-faq");
             $('a[href="#' + id + '"] .panel-title span').html('<i class="fa fa-minus"></i>');
         });
-        $(".collapse").on("hide.bs.collapse", function () {
+        $(".collapse").on("hide.bs.collapse", function() {
             var id = $(this).attr("id");
             $('a[href="#' + id + '"]')
                 .closest(".panel-heading")
@@ -72,8 +72,8 @@ jQuery(function ($) {
             $('a[href="#' + id + '"] .panel-title span').html('<i class="fa fa-plus"></i>');
         });
     })();
-    (function () {
-        $('input[type="checkbox"]').change(function () {
+    (function() {
+        $('input[type="checkbox"]').change(function() {
             if ($(this).is(":checked")) {
                 $(this).parent("label").addClass("checked");
             } else {
@@ -81,26 +81,26 @@ jQuery(function ($) {
             }
         });
     })();
-    $(".select-category.post-option ul li a").on("click", function () {
+    $(".select-category.post-option ul li a").on("click", function() {
         $(".select-category.post-option ul li.link-active").removeClass("link-active");
         $(this).closest("li").addClass("link-active");
     });
-    $(".subcategory.post-option ul li a").on("click", function () {
+    $(".subcategory.post-option ul li a").on("click", function() {
         $(".subcategory.post-option ul li.link-active").removeClass("link-active");
         $(this).closest("li").addClass("link-active");
     });
-    (function () {
-        $(".show-number").on("click", function () {
-            $(".hide-text").fadeIn(500, function () {
+    (function() {
+        $(".show-number").on("click", function() {
+            $(".hide-text").fadeIn(500, function() {
                 $(this).addClass("hide");
             });
-            $(".hide-number").fadeIn(500, function () {
+            $(".hide-number").fadeIn(500, function() {
                 $(this).addClass("show");
             });
         });
     })();
 });
-(function () {
+(function() {
     $("#featured-slider").owlCarousel({
         items: 4,
         nav: true,
@@ -112,7 +112,7 @@ jQuery(function ($) {
         responsive: { 0: { items: 1, slideBy: 1 }, 576: { items: 1, slideBy: 1 }, 768: { items: 1, slideBy: 1 }, 1200: { items: 4, slideBy: 1 } },
     });
 })();
-(function () {
+(function() {
     $("#featured-slider-two").owlCarousel({
         items: 4,
         nav: true,
@@ -124,31 +124,9 @@ jQuery(function ($) {
         responsive: { 0: { items: 1, slideBy: 1 }, 480: { items: 1, slideBy: 1 }, 991: { items: 2, slideBy: 1 }, 1000: { items: 4, slideBy: 1 } },
     });
 })();
-(function () {
+(function() {
     $(".testimonial-carousel").owlCarousel({ items: 1, autoplay: true, autoplayHoverPause: true });
 })();
-(function () {
+(function() {
     $(".car-slider").owlCarousel({ items: 1, autoplay: true, autoplayHoverPause: true });
 })();
-$('#comment-button').click(function () {
-    var comment = $('#comment-input').val();
-    if (comment) {
-        console.log(comment);
-        $.ajax({
-            url: '/api/ad-comment',
-            type: 'POST',
-            data: {
-                comment: comment
-            },
-            success: function (response) {
-                $('#comment-card').append('<div class="card-body"><p class="user card-text">' + comment + ' [' + response.date + ']</p><p class="card-text">' + response.comment + '</p></div>');
-                
-            },
-            error: function () {
-                $('#message-alert').text('Error posting comment');
-            }
-        });
-    } else {
-        $('#message-alert').text('Please enter a comment');
-    }
-});

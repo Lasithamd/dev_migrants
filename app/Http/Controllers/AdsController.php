@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ads;
+
 use App\Http\Requests\StoreAdsRequest;
 use App\Http\Requests\UpdateAdsRequest;
 use App\Services\AdsService;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Services\ImageService;
 use App\Services\SubCategoryService;
 use App\Services\LocationServices;
+
 
 class AdsController extends Controller
 {
@@ -188,5 +190,9 @@ class AdsController extends Controller
         $image=$this->loadImageList();
 
         return view('front.ads.myads', compact('adsData', 'image'));
+    }
+
+    public function addComment(Request $request){
+        
     }
 }

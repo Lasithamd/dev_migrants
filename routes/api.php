@@ -23,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource("/cities", CityController::class);
 
 Route::post('/getAIContent',[AiController::class,'getAIContent']);
+
