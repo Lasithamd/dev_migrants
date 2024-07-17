@@ -43,139 +43,110 @@
                     </form>
                 </div>
             </div>
-            <div class="section slider">
+            <div class="container section slider ">
                 <div class="row">
-
-                    <div class="col-lg-7">
+                    <div class="col-8"> 
                         <div id="product-carousel" class="carousel slide" data-ride="carousel">
-
-                            <ol class="carousel-indicators">
-                                <?php $count = 0; ?>
-                                @foreach ($image as $img)
-                                    @if ($count == 0)
-                                        <li data-target="#product-carousel" data-slide-to="<?php echo $count;
-                                        $count++; ?>"
-                                            class="active">
-                                            <img src="{{ asset('/uploads/gallery/' . $img->link) }}" alt="Carousel Thumb"
-                                                class="img-fluid">
-                                        </li>
-                                    @elseif ($count != 0)
-                                        <li data-target="#product-carousel" data-slide-to="<?php echo $count;
-                                        $count++; ?>">
-                                            <img src="{{ asset('/uploads/gallery/' . $img->link) }}" alt="Carousel Thumb"
-                                                class="img-fluid">
-                                        </li>
-                                    @endif
-                                @endforeach
-
-                            </ol>
-
-                            <div class="carousel-inner" role="listbox">
-                                <?php $count = 0; ?>
-                                @foreach ($image as $img)
-                                    @if ($count == 0)
-                                        <div class="item carousel-item active">
-                                            <div class="carousel-image">
-
-                                                <img src="{{ asset('/uploads/gallery/' . $img->link) }}" alt="Featured Image"
-                                                    class="img-fluid">
-                                            </div>
-                                        </div>
-                                    @elseif ($count != 0)
-                                        <div class="item carousel-item ">
-                                            <div class="carousel-image">
-
-                                                <img src="{{ asset('/uploads/gallery/' . $img->link) }}" alt="Featured Image"
-                                                    class="img-fluid">
-                                            </div>
-                                        </div>
-                                    @endif
-                                    <?php $count++; ?>
-                                @endforeach
-
-                            </div>
-
-                            <a class="left carousel-control" href="#product-carousel" role="button" data-slide="prev">
-                                <i class="fa fa-chevron-left"></i>
-                            </a>
-                            <a class="right carousel-control" href="#product-carousel" role="button" data-slide="next">
-                                <i class="fa fa-chevron-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-5">
-                        <div class="slider-text">
-                           
-                            <h3 class="title">{{$ad->name}}</h3>
-                            <h5>LKR {{$ad->price}}</h5>
-                            <span class="icon"><i class="fa fa-clock-o"></i><a href="#"> {{$ad->created_at}} </a></span>
-                            <span class="icon"><i class="fa fa-map-marker"></i><a href="#"> </a></span>
-                      
-                                    
-
-                            <div class="short-info">
-                               
-                                <p><strong>Condition: </strong><a href="#">New</a> </p>
-                                <p><strong>Brand: </strong><a href="#">Apple</a> </p>
-                                <p><strong>Features: </strong><a href="#">Camera,</a> <a href="#">Dual
-                                        SIM,</a> <a href="#">GSM,</a> <a href="#">Touch screen</a> </p>
-                                <p><strong>Model: </strong><a href="#">iPhone 6</a></p>
-                            </div>
-
-                            <div class="contact-with">
-                                <h4>Contact with </h4>
-                                <span class="btn btn-red show-number">
-                                    <i class="fa fa-phone-square"></i>
-                                    <span class="hide-text">Click to show phone number </span>
-                                    <span class="hide-number">012-1234567890</span>
-                                </span>
-                              
-                            </div>
-
-                            <div class="social-links">
-                                <h4>Share this ad</h4>
-                                <ul class="list-inline">
-                                    <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest-square"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-tumblr-square"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="description-info">
-                <div class="row">
-
-                    <div class="col-md-8">
-                        <div class="description">
-                            <h4>Description</h4>
-                            <p>{{$ad->description}}</p><br>
-                           
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="comment">
-                            <div class="container">
-                                <h6>Comments</h6>
-                                <div id="comment-section">
-                                  <!-- Previous comments -->
-                                  <div class="card mb-3" id="comment-card">
-                                    <div class="card-body" >
-                                       
-                                        <p class="user card-text">Posted by John Doe  [ on October 1, 2022 ] </p>
-                                        <p class="card-text">This is a previous comment.</p>
-                                      </div>
-                                  </div>
+                        
+                        <div class="carousel-inner" role="listbox">
+                            <?php $count = 0; ?>
+                            @foreach ($image as $img)
+                                <div class="carousel-item {{ $count == 0 ? 'active' : '' }}">
+                                    <div class="carousel-image">
+                                        <img src="{{ asset('/uploads/gallery/' . $img->link) }}" alt="Featured Image" class="img-fluid">
+                                    </div>
                                 </div>
-                              
-                                <!-- Comment post field -->
-                                <div class="card">
+                                <?php $count++; ?>
+                            @endforeach
+                        </div>
+                        <a class="carousel-control-prev" href="#product-carousel" role="button" data-slide="prev">
+                            <i class="fa fa-chevron-left"></i>
+                        </a>
+                        <a class="carousel-control-next" href="#product-carousel" role="button" data-slide="next">
+                            <i class="fa fa-chevron-right"></i>
+                        </a>
+                        <ol class="ps-none carousel-indicators">
+                            <?php $count = 0; ?>
+                            @foreach ($image as $img)
+                                <li data-target="#product-carousel" data-slide-to="{{ $count }}" class="{{ $count == 0 ? 'active' : '' }}">
+                                    <img src="{{ asset('/uploads/gallery/' . $img->link) }}" alt="Carousel Thumb" class="img-fluid">
+                                </li>
+                                <?php $count++; ?>
+                            @endforeach
+                        </ol>
+                    </div>
+                   
+                </div>
+                    <div class="col-4"><div class="slider-text">
+                        <h3 class="title">{{ $ad->name }}</h3>
+                        <h5>LKR {{ $ad->price }}</h5>
+                        <span class="icon"><i class="fa fa-clock"></i><a href="#">{{ $ad->created_at }}</a></span>
+                        <span class="icon"><i class="fa fa-map-marker-alt"></i><a href="#"></a></span>
+                        <div class="short-info">
+                            <p><strong>Condition: </strong><a href="#">New</a></p>
+                            <p><strong>Brand: </strong><a href="#">Apple</a></p>
+                            <p><strong>Features: </strong>
+                                <a href="#">Camera</a>, 
+                                <a href="#">Dual SIM</a>, 
+                                <a href="#">GSM</a>, 
+                                <a href="#">Touch screen</a>
+                            </p>
+                            <p><strong>Model: </strong><a href="#">iPhone 6</a></p>
+                        </div>
+                        <div class="contact-with">
+                            <h4>Contact with</h4>
+                            <button class="btn btn-danger show-number">
+                                <i class="fa fa-phone-square"></i>
+                                <span class="hide-text">Click to show phone number</span>
+                                <span class="hide-number">012-1234567890</span>
+                            </button>
+                        </div>
+                        <div class="social-links">
+                            <h4>Share this ad</h4>
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-pinterest-square"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fa fa-tumblr-square"></i></a></li>
+                            </ul>
+                        </div>
+                    </div></div>
+                  </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="description-ct">
+                        <fieldset>
+                            <legend>Description:</legend>
+                            <p>{{$ad->description}}</p><br>
+                           </fieldset>
+                        
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <h6>Comments</h6>
+                        <div id="comment-section">
+                          <!-- Previous comments -->
+                          <div class="card mb-3" id="comment-card">
+                            @foreach($comment as $com)
+                            <div class="card-body" >
+                                <div class="row">
+                                    <div class="vr col-md-2">
+                                        <div class="avatar">C</div>
+                                       </div>
+                                       <div class="col-md-10">
+                                        <p class="user card-text"> John Doe  >{{$com->created_at }} </p>
+                                        <p class="card-text">{{$com->comment}}</p>
+                                      
+                                       </div>
+                                </div>
+                            
+                               
+                              </div>
+                              @endforeach
+                          </div>
+                          <div class="card">
                                   <div class="card-body">
                                     <h5 class="card-title">Post a Comment</h5>
                                     <form method="POST">
@@ -189,14 +160,24 @@
                                     </form>
                                   </div>
                                 </div>
-                              </div>
                         </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="description-info">
+                <div class="row">
+
+                   
+
+                    <div class="col-md-4">
+                        
                     </div>
                 </div>
             </div>
             <div class="recommended-info">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="section recommended-ads">
                             <div class="featured-top">
                                 <h4>Recommended Ads for You</h4>
@@ -206,12 +187,14 @@
 
                                 <div class="item-image-box col-lg-4">
                                     <div class="item-image">
-                                        <a href="details.html">
-                                            @foreach ($profile as $img)
-                                            @if ($item->id == $img->ads_id)
-                                            <img src="{{ asset('/uploads/featurd/' . $img->link) }}" alt="Image"
+                                       
+                                            @foreach ($featured as $feat)
+                                            @if(($item->id) == $feat->ads_id)
+                                            <a href="{{url('/ads-details/'. $feat->ad_id)}}">
+                                           
+                                            <img src="{{ asset('/uploads/featurd/' . $feat->link) }}" alt="Image"
                                                 class="img-fluid"></a>
-                                                @endif
+                                              @endif
                                                 @endforeach
                                     </div>
                                 </div>
@@ -245,44 +228,7 @@
                             
                         </div>
                     </div>
-                    <div class="col-md-4 text-center">
-                        <div class="recommended-cta">
-                            <div class="cta">
-
-                                <div class="single-cta">
-
-                                    <div class="cta-icon icon-secure">
-                                        <img src="images/icon/13.png" alt="Icon" class="img-fluid">
-                                    </div>
-                                    <h4>Secure Trading</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                </div>
-
-                                <div class="single-cta">
-
-                                    <div class="cta-icon icon-support">
-                                        <img src="images/icon/14.png" alt="Icon" class="img-fluid">
-                                    </div>
-                                    <h4>24/7 Support</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                </div>
-
-                                <div class="single-cta">
-
-                                    <div class="cta-icon icon-trading">
-                                        <img src="images/icon/15.png" alt="Icon" class="img-fluid">
-                                    </div>
-                                    <h4>Easy Trading</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                </div>
-
-                                <div class="single-cta">
-                                    <h5>Need Help?</h5>
-                                    <p><span>Give a call on</span><a href="tellto:08048100000"> 08048100000</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>

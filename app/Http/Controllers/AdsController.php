@@ -56,27 +56,18 @@ class AdsController extends Controller
      * @param  \App\Models\Ads  $ads
      * @return \Illuminate\Http\Response
      */
-    public function show(Ads $ads, AdsService $ad, ImageService $img )
+    public function show(Ads $ads, AdsService $adsService, ImageService $img ,$id)
     {
-       
-        //---- 07-102024
-        $adId = $ads->id;
-        $adsData = $ad->getAds();;
-        // Retrieve the ad data based on the provided ID
-        // $ad = $ad->getAdsSingleDetail($ads);
-        // $ad = DB::table('ads')
-        // ->leftJoin('categories', 'categories.id', '=', 'ads.category_id')
-        // ->leftJoin('sub_categories', 'sub_categories.id', '=', 'ads.sub_category_id')
-        // ->leftJoin('cities', 'cities.id', '=', 'ads.city_id')
-        // ->select('ads.*', 'categories.name as cname', 'sub_categories.name as subname')
-        // ->where('ads.id', $ads)
-        // ->first();
+        $ad = $ads::findOrFail($id);
 
-     
+        $adsData = $adsService->getAds();;
 
-        $image= $img->getGalleryImage($ads);
+        $image= $img->getGalleryImage($id);
+        $featured= $img->getFeaturdyImage();
 
-        return view('front.ads.details', compact('ad', 'image', 'adsData'));
+    $comment=$adsService->getComments($id);
+
+        return view('front.ads.details', compact('ad', 'image', 'adsData','featured', 'comment'));
     }
     
 

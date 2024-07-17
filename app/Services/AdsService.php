@@ -4,6 +4,7 @@ namespace App\Services;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Ads;
+use App\Models\Comment;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 
@@ -89,5 +90,9 @@ class   AdsService{
         catch(Exception $e){
             
         }
+    }
+
+    public function getComments($id){
+        return Comment::where('ads_id',$id)->get();
     }
 }

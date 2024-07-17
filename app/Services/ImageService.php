@@ -33,11 +33,11 @@ class   ImageService{
             'link' => $name
         ]);
     }
-    public function getGalleryImage(Model $model){
-        $image = DB::table('images')
-        ->leftJoin('ads', 'ads.id', '=', 'images.ads_id')
-        ->select('images.*')->where('images.ads_id', $model)->where('images.status', 0)
-        ->get();
+    public function getGalleryImage($id){
+        return Image::where('ads_id', $id)->where('status', 2)->get();
+    }
+    public function getFeaturdyImage(){
+        $image = Image::all();
         return $image;
 
     }
