@@ -27,7 +27,7 @@
                
                 <div class="row">
 
-                    <div class="col-lg-3 col-md-4">
+                    <div class="col-lg-4 col-md-4">
                         <div class="category-accordion tr-accordion" id="accordion">
                             <div class="card">
                                 <div class="card-header" id="heading-1"> <button data-toggle="collapse"
@@ -146,7 +146,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-7 col-lg-7">
+                    <div class="col-md-8 col-lg-8">
                         <div class="section recommended-ads">
                             <div class="banner-form banner-form-full">
                                 <form action="#">
@@ -192,7 +192,7 @@
                                     <div class="item-info col-lg-8">
                                         <div class="ad-info">
                                             <h3 class="item-price">LKR {{ $ads->price }}</h3>
-                                            <h4 class="item-title"><a href="#">{{ $ads->title }}</a></h4>
+                                            <h4 class="item-title"><a href="#">{{ $ads->name }}</a></h4>
                                             <div class="item-cat"> <span><a href="#">{{ $ads->cname }}</a></span>
                                                 / <span><a href="#">{{ $ads->subname }}</a></span>
                                             </div>
@@ -209,11 +209,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-lg-2 d-none d-lg-block">
-                        <div class="advertisement text-center"> <a href="#">
-                            asds<img src="images/ads/2.jpg" alt
-                                    class="img-fluid"></a> </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>

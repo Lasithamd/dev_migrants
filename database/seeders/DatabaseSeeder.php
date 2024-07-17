@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ProvinceSeeder::class);
            $this->call(BrandSeeder::class);
            $this->call(ModSeeder::class);
+           $this->call(AdsSeeder::class);
+           $this->call(ImageSeeder::class);
 
     }
 }
