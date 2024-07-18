@@ -109,6 +109,16 @@ class AdsController extends Controller
     }
     
 
+    public function loadCategories(int $id, AdsService $ads, CategoryService $category, ImageService $image)
+    {
+        $categoryName =$category->categoryName($id);
+        $text = 'single';       
+        $categories=$category->categoryCount();
+        $adsData=$ads->getSingleAd($id);
+       
+        $image = $image->getAdsImages();
+        return view('front.ads-categories', compact('adsData', 'image', 'categories', 'text', 'categoryName'));
+    }
     public function search(Request $request, AdsService $adsService,CategoryService $category, ImageService $image){
         $text = 'List';    
         $query = $request->all();

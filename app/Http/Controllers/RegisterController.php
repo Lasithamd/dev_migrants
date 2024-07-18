@@ -102,16 +102,6 @@ class RegisterController extends Controller
         return view('front.register.index', compact('categories', 'subcategories', 'districts'));
     }
 
-    public function loadCategories(int $id, AdsService $ads, CategoryService $category, ImageService $image)
-    {
-        $categoryName =$category->categoryName($id);
-        $text = 'single';       
-        $categories=$category->categoryCount();
-        $adsData=$ads->getSingleAd($id);
-       
-        $image = $image->getAdsImages();
-        return view('front.ads-categories', compact('adsData', 'image', 'categories', 'text', 'categoryName'));
-    }
     public function registerNext(Request $request, CategoryService $categories, LocationServices $location, SubCategoryService $subcategories)
     {
         $data = $request->all();
