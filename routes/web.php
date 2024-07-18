@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdsController;
 
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
@@ -25,14 +26,14 @@ Route::get('/ads-categories',[AdsController::class, 'loadList']);
 Route::get('/ads-details/{id}',[AdsController::class,'show'])->name('ads-details');
 Route::get('/ads-categories/{id}',[AdsController::class, 'loadCategories'])->name('ads-categories');
 
-Route::get('/ads/register', [AdsController::class,'register'])->name('ads.register');
+Route::get('/ads/register', [RegisterController::class,'register'])->name('ads.register');
 Route::post('/ads/register-next', [AdsController::class,'registerNext'])->name('register-next');
 Route::get('/ads/resgister-third', [AdsController::class,'resgisterThird'])->name('resgister-third');
 Route::post('/ads/final-step', [AdsController::class,'finalStep'])->name('final-step');
 Route::get('/ads/myads', [AdsController::class,'myads'])->name('ads.myads');
 
 
-Route::get('/ads-details/{id}',[AdsController::class,'show'])->name('ads-details');
+
 Route::get('/ads-categories/{id}',[AdsController::class, 'loadCategories'])->name('ads-categories');
 Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
 

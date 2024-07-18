@@ -60,10 +60,11 @@ class AdsController extends Controller
      */
     public function show(Ads $ads, AdsService $adsService, ImageService $img ,$id)
     {
-        $ad = $ads::findOrFail($id);
-
+        // $ad = $ads::findOrFail($id);
+        $ad=$adsService->getAdsSingle($id);
+        
         $adsData = $adsService->getAds();;
-
+       
         $image= $img->getGalleryImage($id);
         $featured= $img->getFeaturdyImage();
 
@@ -106,91 +107,7 @@ class AdsController extends Controller
     {
         //
     }
-    public function register(CategoryService $categories, SubCategoryService $subcategories, LocationServices $location)
-    {
-       
-        $categories = $categories->getCategory();;
-        $subcategories = $subcategories->getOrderSubCat();
-        $districts = $location->getDistric();
-        return view('front.register.index', compact('categories', 'subcategories', 'districts'));
-    }
-
-    public function loadCategories(int $id, AdsService $ads, CategoryService $category, ImageService $image)
-    {
-        $categoryName =$category->categoryName($id);
-        $text = 'single';       
-        $categories=$category->categoryCount();
-        $adsData=$ads->getSingleAd($id);
-       
-        $image = $image->getAdsImages();
-        return view('front.ads-categories', compact('adsData', 'image', 'categories', 'text', 'categoryName'));
-    }
-    public function registerNext(Request $request, CategoryService $categories, LocationServices $location, SubCategoryService $subcategories)
-    {
-        $data = $request->all();
-        
-        $location=$location->getDistricDetails($data['city']); 
-        $subcategories =$subcategories->findSubCat($data['sub_category_id']);
-        $categories = $categories->findCategory($subcategories['category_id']);
-        return view('front.register.second', compact('categories', 'subcategories', 'location'));
-    }
-    public function resgisterThird(Request $request, AdsService $ads,CategoryService $categories, LocationServices $location, SubCategoryService $subcategories)
-    {
-
-        // $this->validate($request, [
-        //     'title' => 'required|max:255',
-        //     'description' => 'required',
-        //     'price' => 'required',
-        // ]);
-        Auth::user()->id;
-
-
-        $data = $request->all();
-        $data['slug']=$ads->slugGenerator($data['name'], $data['sub_category_id'], $data['city_id']);
-        $data = $ads->checkFeature($data);       
-        $data['user_id']  = 1;
-        $ads = Ads::create($data);
-        $location=$location->getDistricDetails($data['city_id']);
-        $subcategories =$subcategories->findSubCat($data['sub_category_id']);
-        $categories = $categories->findCategory($subcategories['category_id']);
-        return view('front.register.third', compact('categories', 'subcategories', 'location', 'ads'));
-    }
-    public function finalStep(Request $request, ImageService $images)
-    {
-        $data = $request->all();
-
-        for ($i = 0; $i <= 4; $i++) {
-            $fieldName = 'image' . ($i);
-
-            // Assuming your file input names are image1, image2, etc.
-            if ($request->hasFile($fieldName)) {
-
-                $image = $request->file($fieldName);
-
-                $imageNames = time() . $i . '.' . $image->getClientOriginalExtension();
-
-                // Save the image path or perform any additional logic
-                if ($i == 0) {
-                    $image->move(public_path('uploads/featurd'), $imageNames);
-                    $images->saveImagesProfile($data['id'],$imageNames);
-                } else {
-                    $image->move(public_path('uploads/gallery'), $imageNames);
-                    $images->saveImagesGallery($data['id'],$imageNames);
-                }
-                // You may want to continue the loop instead of returning immediately
-            }
-        }
-
-        return redirect()->route('ads.myads')->with('success', 'City Created Successfully');
-    }
-
-    public function myads(array $data) {
-        
-        $adsData = $this->loadMyAdList();
-        $image=$this->loadImageList();
-
-        return view('front.ads.myads', compact('adsData', 'image'));
-    }
+    
 
     public function search(Request $request, AdsService $adsService,CategoryService $category, ImageService $image){
         $text = 'List';    

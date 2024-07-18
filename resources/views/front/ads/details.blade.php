@@ -6,39 +6,16 @@
 
                 <ol class="breadcrumb">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Electronics & Gedget</a></li>
-                    <li>Mobile Phone</li>
+                    <li><a href="#">{{ $ad->cname}}</a></li>
+                    <li>{{ $ad->subname}}</li>
                 </ol>
-                <h2 class="title">Mobile Phones</h2>
+                <h2 class="title">{{ $ad->subname}}</h2>
             </div>
             <div class="section banner">
 
                 <div class="banner-form banner-form-full">
-                    <form action="#">
-
-                        <div class="dropdown category-dropdown">
-                            <a data-toggle="dropdown" href="#"><span class="change-text">Select Category</span> <i
-                                    class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu category-change">
-                                <li><a href="#">Fashion & Beauty</a></li>
-                                <li><a href="#">Cars & Vehicles</a></li>
-                                <li><a href="#">Electronics & Gedgets</a></li>
-                                <li><a href="#">Real Estate</a></li>
-                                <li><a href="#">Sports & Games</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="dropdown category-dropdown language-dropdown ">
-                            <a data-toggle="dropdown" href="#"><span class="change-text">United Kingdom</span> <i
-                                    class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu  language-change">
-                                <li><a href="#">United Kingdom</a></li>
-                                <li><a href="#">United States</a></li>
-                                <li><a href="#">China</a></li>
-                                <li><a href="#">Russia</a></li>
-                            </ul>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Type Your key word">
+                    <form action="{{ route('serach-ad')}}" method="GET">
+                        <input type="text" class="form-control" placeholder="Type Your key word" name="keyword">
                         <button type="submit" class="form-control" value="Search">Search</button>
                     </form>
                 </div>
@@ -184,6 +161,7 @@
                             </div>
                             <div class="featured-content">
                             @foreach($adsData as $item)
+                            
                             <div class="ad-item row">
 
                                 <div class="item-image-box col-lg-4">
@@ -191,7 +169,7 @@
                                        
                                             @foreach ($featured as $feat)
                                             @if(($item->id) == $feat->ads_id)
-                                            <a href="{{url('/ads-details/'. $feat->ad_id)}}">
+                                            <a href="{{url('/ads-details/'. $item->id)}}">
                                            
                                             <img src="{{ asset('/uploads/featurd/' . $feat->link) }}" alt="Image"
                                                 class="img-fluid"></a>

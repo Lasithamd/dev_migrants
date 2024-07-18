@@ -21,6 +21,20 @@ class   AdsService{
         ->select('ads.*', 'categories.name as cname', 'sub_categories.name as subname','images.link as imageLink')
         ->where('images.status',1)->get();
 
+        
+        return  $ads;
+
+    }
+    public function getAdsSingle(int $id){
+        
+        $ads = DB::table('ads')
+        ->leftJoin('categories', 'categories.id', '=', 'ads.category_id')
+        ->leftJoin('sub_categories', 'sub_categories.id', '=', 'ads.sub_category_id')
+        ->leftJoin('cities', 'cities.id', '=', 'ads.city_id')
+        ->select('ads.*', 'categories.name as cname', 'sub_categories.name as subname')
+        ->where('ads.id', '=', $id)->first();
+
+       
         return  $ads;
 
     }
