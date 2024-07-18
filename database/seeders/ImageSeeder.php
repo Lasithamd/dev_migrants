@@ -64,5 +64,54 @@ class ImageSeeder extends Seeder
             'status' => 2,
 
         ]);
+        Image::create([
+
+            'name' => 'German shepherd',
+            'link' => 'german-shepherd-dog-1.jpeg',
+            'ads_id' => 4,
+            'status' => 1,
+
+        ]);
+        Image::create([
+
+            'name' => 'German shepherd',
+            'link' => 'german-shepherd-dog-2.jpeg',
+            'ads_id' => 4,
+            'status' => 2,
+
+        ]);
+        Image::create([
+
+            'name' => 'German shepherd',
+            'link' => 'german-shepherd-dog-3.jpg',
+            'ads_id' => 4,
+            'status' => 2,
+
+        ]);
+        Image::create([
+
+            'name' => 'American Bully',
+            'link' => 'american-bully-puppies-1.webp',
+            'ads_id' => 5,
+            'status' => 1,
+
+        ]); 
+        Image::create([
+
+            'name' => 'American Bully',
+            'link' => 'american-bully-puppies-2.webp',
+            'ads_id' => 5,
+            'status' => 2,
+
+        ]);
+        Image::create([
+
+            'name' => 'American Bully',
+            'link' => 'american-bully-puppies-3.jpeg',
+            'ads_id' => 5,
+            'status' => 2,
+
+        ]);
+        
     }
 }

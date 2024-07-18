@@ -72,5 +72,43 @@ class AdsSeeder extends Seeder
             'user_id' => 1,
             'slug' => 'luxury-house-for-sale-in-horana-for-sale-kalutara'
         ]);
+
+        Ads::create([
+
+            'name' => 'German Shepherd Dog',
+            'description' => 'This 3-year-old German Shepherd is looking for a new home as the current family is migrating. All vaccinations are up to date.',
+            'price' => 20000,
+            'city_id' => 936,
+            'category_id' => 6,
+            'sub_category_id' => 35,
+            'feature1' => 'N/A',
+            'feature2' => 'N/A',
+            'feature3' => 'N/A',
+            'feature4' => 'N/A',
+            'feature5' => 'N/A',
+            'feature6' => 'N/A',
+            'condition' => 1,
+            'user_id' => 1,
+            'slug' => 'german-shepherd-dog'
+        ]);
+
+        Ads::create([
+
+            'name' => 'American Bully Puppies',
+            'description' => 'American bully 9 Male & Female puppies available for sale.',
+            'price' => 90000,
+            'city_id' => 956,
+            'category_id' => 6,
+            'sub_category_id' => 35,
+            'feature1' => 'N/A',
+            'feature2' => 'N/A',
+            'feature3' => 'N/A',
+            'feature4' => 'N/A',
+            'feature5' => 'N/A',
+            'feature6' => 'N/A',
+            'condition' => 1,
+            'user_id' => 1,
+            'slug' => 'american-bully-puppies'
+        ]);
     }
 }
