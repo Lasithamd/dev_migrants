@@ -104,6 +104,13 @@ class RegisterController extends Controller
 
     public function registerNext(Request $request, CategoryService $categories, LocationServices $location, SubCategoryService $subcategories)
     {
+        $validated = $request->validate([
+            // 'category_id' => 'required'  ,
+            'sub_category_id' => 'required',
+            'districts'=> 'required',
+            'city'=> 'required',
+        ]);
+    
         $data = $request->all();
         
         $location=$location->getDistricDetails($data['city']); 

@@ -108,9 +108,10 @@
                                        
                                       
                                           <div class="ai-conent form-group  ">
+                                            <meta name="csrf-token" content="{{ csrf_token() }}">
                                             <label class="col-sm-12 col-form-label ">Do you want to generate the title and content using AI?</label>
-                                            <button class="col-sm-2 btn btn-primary" type="button" onclick="generateContent()">Generate</button>
-                                            <button class="col-sm-2 btn btn-warning "  type="button" onclick="generateContent()">No</button>
+                                            <button class="col-sm-2 btn btn-primary" type="button" id="generate-content">Generate</button>
+                                            <button class="col-sm-2 btn btn-warning "  type="button" >No</button>
  
                                             
                                           </div>

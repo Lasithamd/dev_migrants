@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdsController;
+use App\Http\Controllers\AiController;
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CommentController;
@@ -36,3 +37,5 @@ Route::get('/ads-categories/{id}',[AdsController::class, 'loadCategories'])->nam
 Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
 
 Route::get('serach-ad', [AdsController::class, 'search'])->name('serach-ad');
+Route::post('getAiContent', [AiController::class, 'getAIContent']);
+

@@ -11,13 +11,12 @@ class AiController extends Controller
 
     public function getAIContent(Request $data)
     {
-      
         $client = new \GuzzleHttp\Client();
         
         try {
             $response = $client->request('POST', 'https://api.openai.com/v1/chat/completions', [
                 'headers' => [
-                    'Authorization' => 'Bearer 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',
+                    'Authorization' => '',
                     'Content-Type' => 'application/json',
                 ],
                 'json' => [
@@ -27,7 +26,7 @@ class AiController extends Controller
                 ],]);
             //code...
 
-            dd($response);
+           
         } catch (\Throwable $th) {
             //throw $th;
         }
