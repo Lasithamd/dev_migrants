@@ -10,10 +10,9 @@
         </div>
         <div class="ad-profile section">
             <div class="user-profile">
-                <div class="user-images"> <img src="images/user.jpg" alt="User Images" class="img-fluid"> </div>
                 <div class="user">
                     <h2>Hello, <a href="#">Jhon Doe</a></h2>
-                    <h5>You last logged in at: 14-01-2018 6:40 AM [ USA time (GMT + 6:00hrs)]</h5>
+                    {{-- <h5>You last logged in at: 14-01-2018 6:40 AM [ USA time (GMT + 6:00hrs)]</h5> --}}
                 </div>
                 <div class="favorites-user">
                     <div class="my-ads"> <a href="my-ads.html">23<small>My ADS</small></a> </div>
@@ -49,7 +48,7 @@
                                 <div class="item-info col-lg-8">
                                     <div class="ad-info">
                                         <h3 class="item-price">LKR {{ $item->price }}</h3>
-                                        <h4 class="item-title"><a href="#">{{ $item->title }}</a> </h4>
+                                        <h4 class="item-title"><a href="#">{{ $item->name }}</a> </h4>
                                         <div class="item-cat"> <span><a href="#">{{ $item->cname }}</a></span> /
                                             <span><a href="#">{{ $item->subname }}</a></span> </div>
                                     </div>

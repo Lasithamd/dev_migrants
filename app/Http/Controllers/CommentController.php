@@ -12,6 +12,10 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         //
@@ -37,13 +41,11 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         $data =$request->all();
-        $data['user_id']=1;
-
-    
+        $data['user_id']=auth()->id();
         //
          Comment::create($data);
      
-         return redirect()->route('ads-details', ['id' => $data['ads_id']])->with('success', 'City Created Successfully');
+         return redirect()->route('ads-details', ['id' => $data['ads_id']])->with('success', 'Comment Created Successfully');
 
 
 

@@ -48,12 +48,12 @@
                                                 <label class="col-form-label">Condition <span
                                                         class="text-danger">*</span></label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-control" type="radio" name="itemCon" value="new"
+                                                    <input class="form-control" type="radio" name="condition" value="1"
                                                         id="new">
                                                     <label class="form-check-label" for="new">New</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-control" type="radio" name="itemCon" value="used"
+                                                    <input class="form-control" type="radio" name="condition" value="0"
                                                         id="used">
                                                     <label class="form-check-label" for="used">Used</label>
                                                 </div>

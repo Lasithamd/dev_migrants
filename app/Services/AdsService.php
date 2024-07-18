@@ -108,7 +108,17 @@ class   AdsService{
     }
 
     public function getComments($id){
-        return Comment::where('ads_id',$id)->get();
+
+        return DB::table('comments')
+        ->leftJoin('users', 'users.id', '=', 'comments.user_id')
+        ->select(
+            'comments.*',
+            'users.name',
+            DB::raw('SUBSTR(users.name, 1, 1) as avatar')
+        )
+        ->where('comments.ads_id', $id)
+        ->get();
+
     }
 
     public function searchAds($query){
@@ -120,5 +130,24 @@ class   AdsService{
 
     }
 
+    public function getFirstLetter(string $sentence){
+        return strtoupper(substr($sentence, 0, 1));
 
+    }
+    public function getAdsByUser($id){
+        
+        $ads = DB::table('ads')
+        ->leftJoin('categories', 'categories.id', '=', 'ads.category_id')
+        ->leftJoin('sub_categories', 'sub_categories.id', '=', 'ads.sub_category_id')
+        ->leftJoin('cities', 'cities.id', '=', 'ads.city_id')
+        ->leftJoin('users', 'users.id', '=', 'ads.user_id')
+        ->leftJoin('images', 'images.ads_id', '=', 'ads.id')
+        ->select('ads.*', 'categories.name as cname', 'sub_categories.name as subname','images.link as imageLink')
+        ->where('users.id',$id)
+        ->where('images.status',1)->get();
+
+        
+        return  $ads;
+
+    }
 }

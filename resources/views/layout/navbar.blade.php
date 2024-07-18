@@ -8,9 +8,9 @@
                 <a class="navbar-brand" href="{{ url('/')}}"><span>Migration Sale</span></a>
                 <div class="collapse navbar-collapse" id="tr-mainmenu">
                     <ul class="lang-btn">
-                        <li class="active"><a href="index.html">සිංහල</a></li>
-                        <li><a href="index-one.html">தமிழ்</a></li>
-                        <li><a href="index-two.html">English</a></li>
+                        <li class="active"><a href="">සිංහල</a></li>
+                        <li><a href="">தமிழ்</a></li>
+                        <li><a href="">English</a></li>
                     </ul>
                     {{-- <ul class="nav navbar-nav">
                         <li class="active dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">  English <span class="caret"></span></a>
@@ -42,7 +42,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -57,6 +57,7 @@
                                         @csrf
                                     </form>
                                 </div>
+                                
                             </li>
                             <li></li>
                         @endguest

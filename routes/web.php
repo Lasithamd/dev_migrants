@@ -27,12 +27,10 @@ Route::get('/ads-details/{id}',[AdsController::class,'show'])->name('ads-details
 Route::get('/ads-categories/{id}',[AdsController::class, 'loadCategories'])->name('ads-categories');
 
 Route::get('/ads/register', [RegisterController::class,'register'])->name('ads.register');
-Route::post('/ads/register-next', [AdsController::class,'registerNext'])->name('register-next');
-Route::get('/ads/resgister-third', [AdsController::class,'resgisterThird'])->name('resgister-third');
-Route::post('/ads/final-step', [AdsController::class,'finalStep'])->name('final-step');
-Route::get('/ads/myads', [AdsController::class,'myads'])->name('ads.myads');
-
-
+Route::post('/ads/register-next', [RegisterController::class,'registerNext'])->name('register-next');
+Route::get('/ads/resgister-third', [RegisterController::class,'resgisterThird'])->name('resgister-third');
+Route::post('/ads/final-step', [RegisterController::class,'finalStep'])->name('final-step');
+Route::get('/ads/myads/', [RegisterController::class,'myAds'])->name('ads.myads');
 
 Route::get('/ads-categories/{id}',[AdsController::class, 'loadCategories'])->name('ads-categories');
 Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');

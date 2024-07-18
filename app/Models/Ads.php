@@ -22,7 +22,8 @@ class Ads extends Model
         'feature4',    
         'feature5',    
         'feature6',    
-        'user_id',    
+        'user_id',
+        'condition',   
         'slug'
     ];
 }

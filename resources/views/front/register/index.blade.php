@@ -37,7 +37,7 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="section tab-content subcategory post-option">
-                        <h4>Select a subcategory</h4>
+                        <h4>Select a subcategory</h4>                    
                         @foreach ($categories as $category)
                         <div role="tabpanel" class="tab-pane" id="cat{{$category->id}}">
                             <ul>
@@ -62,7 +62,8 @@
                         <h4>Select a Location</h4>
                         <div class="m3">
                             <label for="districts">District</label>
-                            <select name="districts" id="districts" class="form-control"> 
+                            <select name="districts" id="districts" class="form-control" required>
+                                <option value="1">Select One</option> 
                                 @foreach ( $districts  as   $district )
                                     
                                 <option value="{{$district->id}}">{{$district->name_en}}</option>

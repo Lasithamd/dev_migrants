@@ -4299,3 +4299,8 @@ input[type="radio"]:checked+label {
 .banner-search {
     margin-bottom: 20px;
 }
+
+.auth-dev {
+    margin-top: 10pc;
+    margin-bottom: 10pc;
+}

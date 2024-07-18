@@ -8,6 +8,8 @@ use App\Services\SubCategoryService;
 use App\Services\LocationServices;
 use App\Services\AdsService;
 use App\Services\CategoryService;
+use App\Models\Ads;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -55,7 +57,8 @@ class RegisterController extends Controller
     public function show($id)
     {
         //
-    }
+        print_r('dddd'); die();
+    } 
 
     /**
      * Show the form for editing the specified resource.
@@ -121,18 +124,12 @@ class RegisterController extends Controller
     public function resgisterThird(Request $request, AdsService $ads,CategoryService $categories, LocationServices $location, SubCategoryService $subcategories)
     {
 
-        // $this->validate($request, [
-        //     'title' => 'required|max:255',
-        //     'description' => 'required',
-        //     'price' => 'required',
-        // ]);
-        Auth::user()->id;
-
-
         $data = $request->all();
+
+        // print_r($data); die();
         $data['slug']=$ads->slugGenerator($data['name'], $data['sub_category_id'], $data['city_id']);
         $data = $ads->checkFeature($data);       
-        $data['user_id']  = 1;
+        $data['user_id']  = Auth::user()->id;
         $ads = Ads::create($data);
         $location=$location->getDistricDetails($data['city_id']);
         $subcategories =$subcategories->findSubCat($data['sub_category_id']);
@@ -165,14 +162,15 @@ class RegisterController extends Controller
             }
         }
 
-        return redirect()->route('ads.myads')->with('success', 'City Created Successfully');
+        return redirect()->route('ads.myads')->with('success', 'Ads Created Successfully');
     }
 
-    public function myads(array $data) {
-        
-        $adsData = $this->loadMyAdList();
-        $image=$this->loadImageList();
+    public function myads(AdsService $adsService,  ImageService $image)
+    {
+    
+        $adsData=$adsService->getAdsByUser(Auth::user()->id);
+        $image = $image->getAdsImages();
 
-        return view('front.ads.myads', compact('adsData', 'image'));
+        return view('front.ads.myads',compact('adsData','image'));
     }
 }

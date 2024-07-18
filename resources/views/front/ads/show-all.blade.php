@@ -770,7 +770,7 @@
             <div class="col-sm-12 text-center">
                 <h2 class="title">Do you have something-sell?</h2>
                 <h4>Post your ad for free on Migrants Sale.com</h4>
-                <a href="ad-post.html" class="btn btn-primary">Post Your Ad</a>
+                <a href="{{ route('ads.register')}}" class="btn btn-primary">Post Your Ad</a>
             </div>
         </div>
     </div>
