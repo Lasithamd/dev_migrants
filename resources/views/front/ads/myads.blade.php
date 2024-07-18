@@ -11,8 +11,8 @@
         <div class="ad-profile section">
             <div class="user-profile">
                 <div class="user">
-                    <h2>Hello, <a href="#">Jhon Doe</a></h2>
-                    {{-- <h5>You last logged in at: 14-01-2018 6:40 AM [ USA time (GMT + 6:00hrs)]</h5> --}}
+                    <h2><a href="#"> {{ Auth::user()->name }}</h2>
+                    <h5>You last logged in at: 14-01-2018 6:40 AM [ USA time (GMT + 6:00hrs)]</h5>
                 </div>
                 <div class="favorites-user">
                     <div class="my-ads"> <a href="my-ads.html">23<small>My ADS</small></a> </div>

@@ -167,7 +167,7 @@ class RegisterController extends Controller
 
     public function myads(AdsService $adsService,  ImageService $image)
     {
-    
+        
         $adsData=$adsService->getAdsByUser(Auth::user()->id);
         $image = $image->getAdsImages();
 
