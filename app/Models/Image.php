@@ -14,4 +14,9 @@ class Image extends Model
     ];
 
     protected $primaryKey = 'id';
+
+    public function ads()
+    {
+        return $this->belongsTo(Ads::class, 'ads_id');
+    }
 }

@@ -14,5 +14,16 @@ class Comment extends Model
         'comment',
         'user_id'
     ];
+    protected $primaryKey = 'id';
+
+    public function ads()
+    {
+        return $this->belongsTo(Ads::class, 'ads_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
 

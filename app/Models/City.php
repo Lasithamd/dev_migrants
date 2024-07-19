@@ -10,5 +10,15 @@ class City extends Model
     use HasFactory;
     protected $fillable = ['name_en', 'name_si','district_id','postcode'];
     // protected $fill
-    protected $primaryKey = 'city_id';
+    protected $primaryKey = 'id';
+
+    public function district()
+    {
+        return $this->belongsTo(District::class, 'district_id');
+    }
+
+    public function ads()
+    {
+        return $this->hasMany(Ads::class, 'city_id');
+    }
 }
