@@ -131,49 +131,35 @@ jQuery(function($) {
     $(".car-slider").owlCarousel({ items: 1, autoplay: true, autoplayHoverPause: true });
 })();
 
-$('#generate-content').click(function () {
+$('#generate-content').click(function() {
 
     var price = $("input[name=price]").val();
     var feature1 = $("select[name=feature1]").val();
     var feature2 = $("input[name=feature2]").val();
     var feature3 = $("select[name=feature3]").val();
 
-    var data= feature1+' '+feature2+', '+feature3+', price LKR'+price;
+    var message = feature1 + ' ' + feature2 + ', ' + feature3 + ', price LKR' + price;
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    
     $.ajax({
         url: '/getAiContent/',
         type: 'POST',
         data: {
-            "_token": "{{ csrf_token() }}",
-            "data": data
-            },
-    
-        contentType: 'application/json',
-        data: JSON.stringify(data), // Convert data to JSON string
+            'message': message
+                // Your data object comes here
+        },
+        success: function(response) {
 
-        success: function (response) {
-            var  jsonResponse= JSON.parse(response);
 
-        
-            var title = response.choices[0].message.content.split('\\n')[0].split(': ')[1].replace(/\\"/g, '"');
-            var description = response.choices[0].message.content.split('\\n')[1].split(': ')[1].replace(/\\"/g, '"');
-            document.getElementById('adTitle').textContent = title;
-            document.getElementById('adDescription').textContent = description;
-
-            // $('#city').empty().append('<option value="">Select a Cities</option>');
-
-            // $.each(response, function (key, cities) {
-
-            //     $('#city').append('<option value="' + cities.id + '">' + cities.name_en + '</option>');
-            // });
-
-            // $('#city').prop('city', false);
+            // Handle success here
+        },
+        error: function(xhr, status, error) {
+            // Handle errors here
         }
     });
+
 
 });
