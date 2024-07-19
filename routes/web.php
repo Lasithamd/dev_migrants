@@ -7,6 +7,8 @@ use App\Http\Controllers\AiController;
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,9 +35,16 @@ Route::get('/ads/resgister-third', [RegisterController::class,'resgisterThird'])
 Route::post('/ads/final-step', [RegisterController::class,'finalStep'])->name('final-step');
 Route::get('/ads/myads/', [RegisterController::class,'myAds'])->name('ads.myads');
 
+
+
 Route::get('/ads-categories/{id}',[AdsController::class, 'loadCategories'])->name('ads-categories');
 Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
 
 Route::get('serach-ad', [AdsController::class, 'search'])->name('serach-ad');
 Route::post('getAiContent', [AiController::class, 'getAIContent']);
+
+Route::get('/profile', [UserController::class,'show'])->name('profile');
+Route::get('/profile/update', [UserController::class,'update'])->name('profile.update');
+Route::get('/comment', [CommentController::class, 'index'])->name('comment');
+
 

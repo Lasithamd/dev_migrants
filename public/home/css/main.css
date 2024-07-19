@@ -4304,3 +4304,12 @@ input[type="radio"]:checked+label {
     margin-top: 10pc;
     margin-bottom: 10pc;
 }
+
+.avator svg {
+    width: 90px;
+    background: #dfd7d7;
+    height: 90px;
+    padding: 20px;
+    border-radius: 51px;
+    margin-right: 20px;
+}

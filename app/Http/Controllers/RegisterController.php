@@ -57,7 +57,7 @@ class RegisterController extends Controller
     public function show($id)
     {
         //
-        print_r('dddd'); die();
+       
     } 
 
     /**
@@ -170,4 +170,5 @@ class RegisterController extends Controller
 
         return view('front.ads.myads',compact('adsData','image'));
     }
+   
 }

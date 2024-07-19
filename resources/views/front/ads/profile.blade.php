@@ -20,8 +20,8 @@
                 </div>
             </div>
             <ul class="user-menu">
-                <li class="active"><a href="{{route('ads.myads')}}">My ads</a></li>
-                <li><a href="{{route('profile')}}">Profile</a></li>
+                <li ><a href="{{route('ads.myads')}}">My ads</a></li>
+                <li class="active"><a href="{{route('profile')}}">Profile</a></li>
                 <li><a href="{{route('comment')}}">Comments</a></li>
             </ul>
         </div>
@@ -29,36 +29,40 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="my-ads section">
-                        <h2>My ads</h2>
-                        @foreach ($adsData as $item)
-                            <div class="ad-item row">
-                                <div class="item-image-box col-lg-4">
-                                    <div class="item-image">
-                                        @foreach ($image as $img)
-                                            @if ($item->id == $img->ads_id)
-                                                <a href="details.html"><img src="{{ asset('/uploads/featurd/' . $img->link) }}"
-                                                        alt="Image" class="img-fluid">{{ $img->name }}</a>
-                                            @endif
-                                        @endforeach
-                                    </div>
-                                </div>
-                                <div class="item-info col-lg-8">
-                                    <div class="ad-info">
-                                        <h3 class="item-price">LKR {{ $item->price }}</h3>
-                                        <h4 class="item-title"><a href="#">{{ $item->name }}</a> </h4>
-                                        <div class="item-cat"> <span><a href="#">{{ $item->cname }}</a></span> /
-                                            <span><a href="#">{{ $item->subname }}</a></span> </div>
-                                    </div>
-                                    <div class="ad-meta">
-                                        <div class="meta-content"> <span class="dated">Posted On: <a
-                                                    href="#">{{ $item->created_at }} </a></span> <span
-                                                class="visitors">Visitors: 221</span> </div>
-                                        
-                                    </div>
-                                </div>
+                        <div class="card">
+                            <div class="card-header">
+                              <h4>User Profile</h4>
                             </div>
-                        @endforeach
-                    </div>
+                            <div class="card-body">
+                              <form id="profileForm" method="POST" action="{{ route('profile.update') }}">
+                                @csrf
+                                @method('PUT')
+                                <div class="form-group">
+                                  <label for="username">Username</label>
+                                  <input type="text" class="form-control" id="username" name="username" value="{{ Auth::user()->name }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                  <label for="email">Email</label>
+                                  <input type="email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">
+                                    Change Password
+                                  </button>
+                                </div>
+                                <div class="form-group">
+                                  <button type="button" class="btn btn-secondary" id="editButton" onclick="enableEditing()">
+                                    Edit
+                                  </button>
+                                  <button type="submit" class="btn btn-success" id="saveButton" style="display: none;">
+                                    Save
+                                  </button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                      </div>
+                   
                 </div>
                 <div class="col-md-4 text-center">
                     <div class="recommended-cta">

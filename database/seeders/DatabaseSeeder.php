@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
            $this->call(AdsSeeder::class);
            $this->call(ImageSeeder::class);
         $this->call(CommentSeeder::class);
+        $this->call(CountriesSeeder::class);
+    
 
     }
 }

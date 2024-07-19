@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Comment;
 use App\Models\User;
-use Illuminate\Http\Response;
 use Auth;
-class CommentController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,14 +19,6 @@ class CommentController extends Controller
     public function index()
     {
         //
-        $id= Auth::user()->id;
-        $user = User::findOrFail($id);
-        
-        // Get all comments for the user
-        $comment = $user->comments;
-
-        return view('front.ads.comment',compact('comment'));
-
     }
 
     /**
@@ -39,7 +29,6 @@ class CommentController extends Controller
     public function create()
     {
         //
-      
     }
 
     /**
@@ -50,15 +39,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $data =$request->all();
-        $data['user_id']=auth()->id();
         //
-         Comment::create($data);
-     
-         return redirect()->route('ads-details', ['id' => $data['ads_id']])->with('success', 'Comment Created Successfully');
-
-
-
     }
 
     /**
@@ -67,8 +48,13 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
+        $id=Auth::user()->id;
+        $user=User::find($id);
+
+        
+        return view('front.ads.profile');
         //
     }
 
