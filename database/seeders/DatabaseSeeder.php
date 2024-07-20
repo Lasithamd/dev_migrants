@@ -20,17 +20,19 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call(CitySeeder::class);
-        $this->call(SubCategorySeeder::class);
-        $this->call(CategorySeeder::class);
-        $this->call(DistrictSeeder::class);
-        $this->call(ProvinceSeeder::class);
-           $this->call(BrandSeeder::class);
-           $this->call(ModSeeder::class);
-           $this->call(AdsSeeder::class);
-           $this->call(ImageSeeder::class);
-        $this->call(CommentSeeder::class);
-        $this->call(CountriesSeeder::class);
+        // $this->call(CitySeeder::class);
+        // $this->call(SubCategorySeeder::class);
+        // $this->call(CategorySeeder::class);
+        // $this->call(DistrictSeeder::class);
+        // $this->call(ProvinceSeeder::class);
+        //    $this->call(BrandSeeder::class);
+        //    $this->call(ModSeeder::class);
+        //    $this->call(AdsSeeder::class);
+        //    $this->call(ImageSeeder::class);
+        // $this->call(CommentSeeder::class);
+        // $this->call(CountriesSeeder::class);
+        $this->call(FeaturerSeeder::class);
+
     
 
     }

@@ -87,10 +87,7 @@
                                 <h4>Easy Trading</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
                             </div>
-                            <div class="single-cta">
-                                <h5>Need Help?</h5>
-                                <p><span>Give a call on</span><a href="tellto:08048100000"> 08048100000</a></p>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>

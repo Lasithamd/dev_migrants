@@ -152,7 +152,17 @@ $('#generate-content').click(function() {
                 // Your data object comes here
         },
         success: function(response) {
+// Extract the title
+let titleStart = response.indexOf('"') + 1;
+let titleEnd = response.lastIndexOf('"');
+let title = response.substring(titleStart, titleEnd);
 
+// Extract the description
+let descriptionStart = response.indexOf('"', titleEnd + 1) + 1;
+let descriptionEnd = response.length;
+let description = response.substring(descriptionStart, descriptionEnd);
+
+console.log(title);
 
             // Handle success here
         },

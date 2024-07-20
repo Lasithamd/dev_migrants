@@ -36,7 +36,7 @@
                                     <div class="item-image">
                                         @foreach ($image as $img)
                                             @if ($item->id == $img->ads_id)
-                                                <a href="details.html"><img src="{{ asset('/uploads/featurd/' . $img->link) }}"
+                                                <a href=""><img src="{{ asset('/uploads/featurd/' . $img->link) }}"
                                                         alt="Image" class="img-fluid">{{ $img->name }}</a>
                                             @endif
                                         @endforeach
@@ -81,10 +81,7 @@
                                 <h4>Easy Trading</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
                             </div>
-                            <div class="single-cta">
-                                <h5>Need Help?</h5>
-                                <p><span>Give a call on</span><a href="tellto:08048100000"> 08048100000</a></p>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

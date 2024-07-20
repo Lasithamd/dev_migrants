@@ -226,7 +226,7 @@
 
                             <div class="item-image-box col-lg-4">
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/listing/1.jpg" alt="Image"
+                                    <a href=""><img src="images/listing/1.jpg" alt="Image"
                                             class="img-fluid"></a>
                                 </div>
                             </div>
@@ -263,7 +263,7 @@
                             <div class="item-image-box col-lg-4">
 
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/trending/2.jpg" alt="Image"
+                                    <a href=""><img src="images/trending/2.jpg" alt="Image"
                                             class="img-fluid"></a>
                                     <span class="featured-ad">Featured</span>
                                     <a href="#" class="verified" data-toggle="tooltip" data-placement="left"
@@ -303,7 +303,7 @@
                             <div class="item-image-box col-lg-4">
 
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/trending/3.jpg" alt="Image"
+                                    <a href=""><img src="images/trending/3.jpg" alt="Image"
                                             class="img-fluid"></a>
                                 </div>
                             </div>
@@ -339,7 +339,7 @@
                             <div class="item-image-box col-lg-4">
 
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/trending/4.jpg" alt="Image"
+                                    <a href=""><img src="images/trending/4.jpg" alt="Image"
                                             class="img-fluid"></a>
                                     <span class="featured-ad">Featured</span>
                                 </div>
@@ -376,7 +376,7 @@
                             <div class="item-image-box col-lg-4">
 
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/listing/5.jpg" alt="Image"
+                                    <a href=""><img src="images/listing/5.jpg" alt="Image"
                                             class="img-fluid"></a>
                                 </div>
                             </div>
@@ -412,7 +412,7 @@
                             <div class="item-image-box col-lg-4">
 
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/listing/6.jpg" alt="Image"
+                                    <a href=""><img src="images/listing/6.jpg" alt="Image"
                                             class="img-fluid"></a>
                                     <span class="featured-ad">Featured</span>
                                 </div>
@@ -449,7 +449,7 @@
                             <div class="item-image-box col-lg-4">
 
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/listing/7.jpg" alt="Image"
+                                    <a href=""><img src="images/listing/7.jpg" alt="Image"
                                             class="img-fluid"></a>
                                 </div>
                             </div>
@@ -485,7 +485,7 @@
                             <div class="item-image-box col-lg-4">
 
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/listing/8.jpg" alt="Image"
+                                    <a href=""><img src="images/listing/8.jpg" alt="Image"
                                             class="img-fluid"></a>
                                     <span class="featured-ad">Featured</span>
                                 </div>
@@ -526,7 +526,7 @@
                             <div class="item-image-box col-lg-4">
 
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/listing/9.jpg" alt="Image"
+                                    <a href=""><img src="images/listing/9.jpg" alt="Image"
                                             class="img-fluid"></a>
                                 </div>
                             </div>
@@ -562,7 +562,7 @@
                             <div class="item-image-box col-lg-4">
 
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/listing/10.jpg" alt="Image"
+                                    <a href=""><img src="images/listing/10.jpg" alt="Image"
                                             class="img-fluid"></a>
                                 </div>
                             </div>
@@ -598,7 +598,7 @@
                             <div class="item-image-box col-lg-4">
 
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/listing/11.jpg" alt="Image"
+                                    <a href=""><img src="images/listing/11.jpg" alt="Image"
                                             class="img-fluid"></a>
                                 </div>
                             </div>
@@ -634,7 +634,7 @@
                             <div class="item-image-box col-lg-4">
 
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/listing/12.jpg" alt="Image"
+                                    <a href=""><img src="images/listing/12.jpg" alt="Image"
                                             class="img-fluid"></a>
                                 </div>
                             </div>
@@ -670,7 +670,7 @@
                             <div class="item-image-box col-lg-4">
 
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/listing/13.jpg" alt="Image"
+                                    <a href=""><img src="images/listing/13.jpg" alt="Image"
                                             class="img-fluid"></a>
                                 </div>
                             </div>
@@ -706,7 +706,7 @@
                             <div class="item-image-box col-lg-4">
 
                                 <div class="item-image">
-                                    <a href="details.html"><img src="images/listing/14.jpg" alt="Image"
+                                    <a href=""><img src="images/listing/14.jpg" alt="Image"
                                             class="img-fluid"></a>
                                 </div>
                             </div>
