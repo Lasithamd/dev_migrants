@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Services\AdsService;
+
 use Auth;
 class UserController extends Controller
 {
@@ -48,13 +50,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(AdsService $adsService)
     {
         $id=Auth::user()->id;
         $user=User::find($id);
 
-        
-        return view('front.ads.profile');
+        $count['ads']=$adsService->getAdsByUserCount(Auth::user()->id);
+        $count['comment']=$adsService->getCommentByUserCount(Auth::user()->id);
+        return view('front.ads.profile',compact('count'));
         //
     }
 

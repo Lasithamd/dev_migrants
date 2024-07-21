@@ -9,6 +9,8 @@ use Exception;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Database\Eloquent\Model;
 
+use function PHPUnit\Framework\isEmpty;
+
 class   AdsService{
 
     public function getAds(){
@@ -62,14 +64,25 @@ class   AdsService{
     }
     public function checkFeature(array $data)
     {
+        // print_r($data); die();   //
         $feactue = ['feature1', 'feature2', 'feature3', 'feature4', 'feature5', 'feature6'];
-
         foreach ($feactue as $item) {
+            if (isset($data[$item])) {
+                if ($data[$item] == null) {
+                    $data[$item] = 'NA';
+                    print_r('2');
 
-            if ($data[$item] == null) {
-                $data[$item] = 'NA';
+                }            
             }
-        }
+            
+            else{
+
+                $data[$item] = 'NA';           
+             }
+            
+            
+        }        
+
         return $data;
     }
 
@@ -149,5 +162,18 @@ class   AdsService{
         
         return  $ads;
 
+    }
+    public function getAdsByUserCount($id){
+        $ads = DB::table('ads')
+        ->where('user_id', $id)
+        ->count();
+        return $ads;
+    }
+    
+    public function getCommentByUserCount($id){
+        $comments = DB::table('comments')
+        ->where('user_id', $id)
+        ->count();
+        return $comments;
     }
 }

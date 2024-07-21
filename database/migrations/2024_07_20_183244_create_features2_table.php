@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('sub_category_id');
+            $table->integer('feat_id');
             $table->timestamps();
         });
     }

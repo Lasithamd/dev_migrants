@@ -102,7 +102,7 @@ class RegisterController extends Controller
         return view('front.register.index', compact('categories', 'subcategories', 'districts'));
     }
 
-    public function registerNext(Request $request, CategoryService $categories, LocationServices $location, SubCategoryService $subcategories)
+    public function registerNext(Request $request, CategoryService $categories, LocationServices $location, SubCategoryService $subcate)
     {
         $validated = $request->validate([
             // 'category_id' => 'required'  ,
@@ -114,15 +114,20 @@ class RegisterController extends Controller
         $data = $request->all();
         
         $location=$location->getDistricDetails($data['city']); 
-        $subcategories =$subcategories->findSubCat($data['sub_category_id']);
+        $subcategories =$subcate->findSubCat($data['sub_category_id']);
         $categories = $categories->findCategory($subcategories['category_id']);
-        return view('front.register.second', compact('categories', 'subcategories', 'location'));
+        
+        $features=$subcate->getFeaturs($data['sub_category_id']);
+        $featData=$subcate->getFeatursData($data['sub_category_id']);
+        
+        return view('front.register.second', compact('categories', 'subcategories', 'location','features','featData'));
     }
     public function resgisterThird(Request $request, AdsService $ads,CategoryService $categories, LocationServices $location, SubCategoryService $subcategories)
     {
 
         $data = $request->all();
 
+        //print_r($data); die();
         // print_r($data); die();
         $data['slug']=$ads->slugGenerator($data['name'], $data['sub_category_id'], $data['city_id']);
         $data = $ads->checkFeature($data);       
@@ -167,8 +172,9 @@ class RegisterController extends Controller
         
         $adsData=$adsService->getAdsByUser(Auth::user()->id);
         $image = $image->getAdsImages();
-
-        return view('front.ads.myads',compact('adsData','image'));
+        $count['ads']=$adsService->getAdsByUserCount(Auth::user()->id);
+        $count['comment']=$adsService->getCommentByUserCount(Auth::user()->id);
+        return view('front.ads.myads',compact('adsData','image','count'));
     }
    
 }

@@ -134,11 +134,14 @@ jQuery(function($) {
 $('#generate-content').click(function() {
 
     var price = $("input[name=price]").val();
-    var feature1 = $("select[name=feature1]").val();
-    var feature2 = $("input[name=feature2]").val();
-    var feature3 = $("select[name=feature3]").val();
+    var sub_name = $("input[name=sub-name]").val();    
+    var feature1 = $("select[name=feature1]").find('option:selected').text();
+    var feature2 = $("select[name=feature2]").find('option:selected').text();
+    var feature3 = $("input[name=feature3]").val();
 
-    var message = feature1 + ' ' + feature2 + ', ' + feature3 + ', price LKR' + price;
+
+    var message = sub_name+' for sale, '+feature1 + ' ' + feature2 + ', ' + feature3 + ', price LKR' + price;
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -151,21 +154,21 @@ $('#generate-content').click(function() {
             'message': message
                 // Your data object comes here
         },
-        success: function(response) {
-// Extract the title
-let titleStart = response.indexOf('"') + 1;
-let titleEnd = response.lastIndexOf('"');
-let title = response.substring(titleStart, titleEnd);
-
-// Extract the description
-let descriptionStart = response.indexOf('"', titleEnd + 1) + 1;
-let descriptionEnd = response.length;
-let description = response.substring(descriptionStart, descriptionEnd);
-
-console.log(title);
-
-            // Handle success here
-        },
+            success: function(response) {
+                try {
+                    let parsedData = JSON.parse(response);
+                    let result = [
+                        { title: parsedData.title },
+                        { description: parsedData.description }
+                    ];
+                    
+                    console.log(result);
+  
+                  } catch (error) {
+                    console.error("Error parsing JSON:", error);
+                  }
+                  
+       },
         error: function(xhr, status, error) {
             // Handle errors here
         }

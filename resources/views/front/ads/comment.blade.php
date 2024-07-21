@@ -16,9 +16,9 @@
                     </svg></span><a href="#"> {{ Auth::user()->name }}</h2>
                 </div>
                 <div class="favorites-user">
-                    <div class="my-ads"> <a href="my-ads.html">23<small>My ADS</small></a> </div>
-                    <div class="favorites"> <a href="#">18<small>Favorites</small></a> </div>
-                </div>
+                  <div class="my-ads"> <a href="my-ads.html">{{ $count['ads']}}<small>My ADS</small></a> </div>
+                  <div class="favorites"> <a href="#">{{ $count['comment']}}<small>Comments</small></a> </div>
+              </div>
             </div>
             <ul class="user-menu">
                 <li><a href="{{route('ads.myads')}}">My ads</a></li>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Response;
+use App\Services\AdsService;
+
 use Auth;
 class CommentController extends Controller
 {
@@ -18,16 +20,17 @@ class CommentController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index()
+    public function index(AdsService $adsService)
     {
         //
         $id= Auth::user()->id;
         $user = User::findOrFail($id);
-        
+        $count['ads']=$adsService->getAdsByUserCount(Auth::user()->id);
+        $count['comment']=$adsService->getCommentByUserCount(Auth::user()->id);
         // Get all comments for the user
         $comment = $user->comments;
 
-        return view('front.ads.comment',compact('comment'));
+        return view('front.ads.comment',compact('comment','count'));
 
     }
 

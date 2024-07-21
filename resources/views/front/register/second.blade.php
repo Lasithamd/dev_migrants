@@ -35,6 +35,7 @@
                                                 </a>
                                             </li>
                                             <li class="active">
+                                                <input type="text" hidden value="{{$subcategories->name }}" name="sub-name">
                                                 <a href="#">{{ $subcategories->name }}</a>
                                             </li>
                                         </ul>
@@ -64,46 +65,99 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
+                                            @if($features->feature1)
                                             <div class="col-sm-4">
-                                                <label class=" col-form-label">Make <span
+                                                <label class=" col-form-label">{{$features->feature1}} <span
                                                         class="text-danger">*</span></label>
-                                                <select class="form-control" name="feature1" id="make">
-                                                    <option value="Toyota">Toyota</option>
-                                                    <option value="Nissan">Nissan</option>
+                                                @if ($featData['features1'])
+                                                <select class="form-control" name="feature1" id="feature1">
+                                                    @foreach ( $featData['features1'] as $item)
+                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                    @endforeach                                                   
                                                 </select>
+                                                @else
+                                                <input type="text" class="form-control" name="feature1" >
+                                                @endif
+                                               
                                             </div>
+                                            @endif
+                                            @if($features->feature2)
                                             <div class="col-sm-4">
-                                                <label class="col-form-label">Model</label>
-                                                <input type="text" class="form-control" name="feature2"
-                                                    placeholder="Model">
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <label class="col-form-label">Year of registration <span
-                                                        class="text-danger">*</span></label><select class="form-control"
-                                                    name="feature3" id="year">
-                                                    <option value="2000">2000</option>
-                                                    <option value="2001">2001</option>
+                                                <label class="col-form-label">{{ $features->feature2}}</label>
+                                                @if ($featData['features2'])
+                                                <select class="form-control" name="feature2" id="feature2">
+                                                    @foreach ( $featData['features2'] as $item)
+                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                    @endforeach                                                   
                                                 </select>
+                                                @else
+                                                <input type="text" class="form-control" name="feature2" >
+                                                @endif
                                             </div>
+                                            @endif
+                                            @if($features->feature3)
+                                            <div class="col-sm-4">
+                                                <label class=" col-form-label">{{$features->feature3}} <span
+                                                    class="text-danger">*</span></label>
+                                                @if ($featData['features3'])
+                                                <select class="form-control" name="feature3" id="feature3">
+                                                    @foreach ( $featData['features3'] as $item)
+                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                    @endforeach                                                   
+                                                </select>
+                                                @else
+                                                <input type="text" class="form-control" name="feature3" >
+                                                @endif
+                                            </div>
+                                            @endif
                                         </div>
                                         <div class="form-group row">
+                                            @if(($features->feature4) && ($features->feature4 != 'N/A'))
                                             <div class="col-sm-4">
-                                                <label class="col-form-label">Fuel type <span
-                                                        class="text-danger">*</span></label><select class="form-control"
-                                                    name="feature4" id="fuel-type">
-                                                    <option value="Automatic">Automatic</option>
-                                                    <option value="Manual">Manual</option>
+                                                <label class=" col-form-label">{{$features->feature4}} <span
+                                                    class="text-danger">*</span></label>
+                                                @if ($featData['features4'])
+                                                <select class="form-control" name="feature4" id="feature4">
+                                                    @foreach ( $featData['features4'] as $item)
+                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                    @endforeach                                                   
                                                 </select>
+                                                @else
+                                                <input type="text" class="form-control" name="feature4" id="feature4">
+                                                @endif
                                             </div>
+                                            @endif
+                                            @if(($features->feature5) && ($features->feature5 != 'N/A'))
                                             <div class="col-sm-4">
-                                                <label class="col-form-label">Engine</label><input type="text"
-                                                    class="form-control" name="feature5" placeholder="Engine">
+                                                <label class=" col-form-label">{{$features->feature5}} <span
+                                                    class="text-danger">*</span></label>
+                                                @if ($featData['features5'])
+                                                <select class="form-control" name="feature5" id="feature5">
+                                                    @foreach ( $featData['features5'] as $item)
+                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                    @endforeach                                                   
+                                                </select>
+                                                @else
+                                                <input type="text" class="form-control" name="feature5" id='feature5' >
+                                                @endif
                                             </div>
+                                            @endif
+                                            @if(($features->feature6) && ($features->feature6 != 'N/A'))
+
                                             <div class="col-sm-4">
-                                                <label class="col-form-label">Current mileage</label>
-                                                <input type="text" class="form-control" name="feature6"
-                                                    placeholder="Current mileage">
+                                                <label class=" col-form-label">{{$features->feature6}} <span
+                                                    class="text-danger">*</span></label>
+                                                @if ($featData['features6'])
+                                                <select class="form-control" name="feature6" id="feature6">
+                                                    @foreach ( $featData['features6'] as $item)
+                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                    @endforeach                                                   
+                                                </select>
+                                                @else
+                                                <input type="text" class="form-control" name="feature6" id="feature6" >
+                                                @endif
                                             </div>
+                                            @endif
                                         </div>
                                        
                                       

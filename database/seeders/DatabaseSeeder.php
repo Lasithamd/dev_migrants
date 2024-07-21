@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use Dflydev\DotAccessData\Data;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -31,7 +33,7 @@ class DatabaseSeeder extends Seeder
         //    $this->call(ImageSeeder::class);
         // $this->call(CommentSeeder::class);
         // $this->call(CountriesSeeder::class);
-        $this->call(FeaturerSeeder::class);
+        $this->call(DataSeeder::class);
 
     
 
