@@ -161,14 +161,7 @@
                                         </div>
                                        
                                       
-                                          <div class="ai-conent form-group  ">
-                                            <meta name="csrf-token" content="{{ csrf_token() }}">
-                                            <label class="col-sm-12 col-form-label ">Do you want to generate the title and content using AI?</label>
-                                            <button class="col-sm-2 btn btn-primary" type="button" id="generate-content">Generate</button>
-                                            <button class="col-sm-2 btn btn-warning "  type="button" >No</button>
- 
-                                            
-                                          </div>
+                                          
                                     </fieldset>
                                     <fieldset class="border p-2">
                                         <legend class="w-auto">Generate content</legend>
@@ -176,13 +169,25 @@
                                             <div class="form-group row">
                                                 <label class=" col-form-label">Title <span
                                                         class="text-danger">*</span></label> <input type="text"
-                                                    class="form-control" id="name" name="name"
+                                                    class="form-control" id="adsName" name="name"
                                                     placeholder="Title for your Ad">
                                             </div>
+                                            <div class="ai-conent form-group  ">
+                                                <meta name="csrf-token" content="{{ csrf_token() }}">
+                                                <label class="col-sm-12 col-form-label ">Do you want to generate the title content using AI?</label>
+                                                <button class="generate-content col-sm-2 btn btn-primary" type="button" value='title'>Generate</button>
+                                              
+                                              </div>
                                             <div class="form-group row">
                                                 <label class="col-form-label">Description</label>
                                                 <textarea name="description" class="form-control" id="description" placeholder="Description"></textarea>
                                             </div>
+                                            <div class="ai-conent form-group  ">
+                                                <meta name="csrf-token" content="{{ csrf_token() }}">
+                                                <label class="col-sm-12 col-form-label ">Do you want to generate the description  content using AI?</label>
+                                                <button class="generate-content col-sm-2 btn btn-primary" type="button" value="description" >Generate</button>
+                                              
+                                              </div>
                                         </div>
                                         <div class="col-sm-6 "> </div>
                                 

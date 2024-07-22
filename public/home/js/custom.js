@@ -131,14 +131,14 @@ jQuery(function($) {
     $(".car-slider").owlCarousel({ items: 1, autoplay: true, autoplayHoverPause: true });
 })();
 
-$('#generate-content').click(function() {
+$('.generate-content').click(function() {
 
     var price = $("input[name=price]").val();
     var sub_name = $("input[name=sub-name]").val();    
     var feature1 = $("select[name=feature1]").find('option:selected').text();
     var feature2 = $("select[name=feature2]").find('option:selected').text();
     var feature3 = $("input[name=feature3]").val();
-
+    var contentType = $(this).val();
 
     var message = sub_name+' for sale, '+feature1 + ' ' + feature2 + ', ' + feature3 + ', price LKR' + price;
 
@@ -151,23 +151,22 @@ $('#generate-content').click(function() {
         url: '/getAiContent/',
         type: 'POST',
         data: {
-            'message': message
+            'message': message,
+            'contentType':contentType
                 // Your data object comes here
         },
             success: function(response) {
-                try {
-                    let parsedData = JSON.parse(response);
-                    let result = [
-                        { title: parsedData.title },
-                        { description: parsedData.description }
-                    ];
-                    
-                    console.log(result);
-  
-                  } catch (error) {
-                    console.error("Error parsing JSON:", error);
-                  }
-                  
+                let cleanedText = response.replace(/['"\/]/g, '')
+                if(contentType=='title'){
+                    $('#adsName').val(cleanedText);    
+                }
+                else if(contentType=='description'){
+                    $('#description').val(cleanedText);    
+                }
+                else{
+                    // $('#description').val(cleanedText);    
+                }
+                     
        },
         error: function(xhr, status, error) {
             // Handle errors here
