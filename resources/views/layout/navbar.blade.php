@@ -77,3 +77,94 @@
             </div>
         </nav>
     </header>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg header-nav">
+                <div class="navbar-header">
+                    <a id="mobile_btn" href="javascript:void(0);">
+                        <span class="bar-icon">
+<span></span>
+                        <span></span>
+                        <span></span>
+                        </span>
+                    </a>
+                    <a class="navbar-brand" href="{{ url('/')}}"><span>Migration Sale</span></a>
+                </div>
+                <div class="main-menu-wrapper">
+                    <div class="menu-header">
+                        <a href="index.html" class="menu-logo">
+                            <img src="img/logo.svg" class="img-fluid" alt="Logo">
+                        </a>
+                        <a id="menu_close" class="menu-close" href="javascript:void(0);"> <i class="fas fa-times"></i></a>
+                    </div>
+                    <ul class="main-nav">
+                        <li class="has-submenu active">
+                            <a href="index.html">Home <i class="fas fa-chevron-down"></i></a>
+
+                        </li>
+                        <li class="has-submenu">
+                            <a href>Ads <i class="fas fa-chevron-down"></i></a>
+
+                        </li>
+                       
+                        <li><a href="contact.html">Contact</a></li>
+                        {{-- <li><a href="admin/index.html" target="_blank">Admin</a></li> --}}
+                        <li class="login-link">
+                            <a href="signup.html">Sign Up</a>
+                        </li>
+                        <li class="login-link">
+                            <a href="login.html">Sign In</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="nav header-navbar-rht">
+                   
+                    @guest
+                            @if (Route::has('login'))
+                               <li class="nav-item">
+                                    <a class="nav-link header-reg"  class="nav-link header-login"  href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link header-login"  href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                  
+                                    <a class="dropdown-item" href="{{ route('profile') }}">
+                                        {{ __('profile') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('ads.myads') }}">
+                                        {{ __('My Ads') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                  document.getElementById('logout-form').submit();">
+                                     {{ __('Logout') }}
+                                 </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                                
+                            </li>
+                            <li>
+
+                           
+                        @endguest
+                    <li class="nav-item">
+                        <a class="nav-link add-listing" href="add-listing.html"><i class="fa-solid fa-plus"></i>Post Your Ad</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>

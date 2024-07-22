@@ -1,67 +1,93 @@
-<footer id="footer" class="clearfix">
+<footer class="footer">
 
-        <section class="footer-top clearfix">
-            <div class="container">
+
+    <div class="footer-top aos" data-aos="fade-up">
+        <div class="container">
+
+
+            <div class="footercount">
                 <div class="row">
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-widget">
-                            <h3>Quik Links</h3>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="#">All Cities</a></li>
-                                <li><a href="#">Help & Support</a></li>
-                                <li><a href="#">Advertise With Us</a></li>
-                                <li><a href="#">Blog</a></li>
-                            </ul>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="vistors-details">
+                            <p>Our Unique Visitor</p>
+                            <p class="visitors-value">25,329,532</p>
                         </div>
                     </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-widget">
-                            <h3>How to sell fast</h3>
-                            <ul>
-                                <li><a href="#">How to sell fast</a></li>
-                                <li><a href="#">Membership</a></li>
-                                <li><a href="#">Banner Advertising</a></li>
-                                <li><a href="#">Promote your ad</a></li>
-                                <li><a href="#">Migrants Sale Delivers</a></li>
-                                <li><a href="#">FAQ</a></li>
-                            </ul>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="vistors-details">
+                            <p>Our Unique Visitor</p>
+                            <p class="visitors-value">25,329,53264546</p>
                         </div>
                     </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-widget social-widget">
-                            <h3>Follow us on</h3>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook-official"></i>Facebook</a></li>
-                                <li><a href="#"><i class="fa fa-twitter-square"></i>Twitter</a></li>
-                                <li><a href="#"><i class="fa fa-google-plus-square"></i>Google+</a></li>
-                                <li><a href="#"><i class="fa fa-youtube-play"></i>youtube</a></li>
-                            </ul>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="vistors-details">
+                            <p>Our Unique Visitor</p>
+                            <p class="visitors-value">25,329,53264546</p>
                         </div>
                     </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-widget news-letter">
-                            <h3>Newsletter</h3>
-                            <p>MigrantsSales.lk is the world's leading classifieds platform!</p>
-
-                            <form action="#">
-                                <input type="email" class="form-control" placeholder="Your email id">
-                                <button type="submit" class="btn btn-primary">Sign Up</button>
-                            </form>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="vistors-details">
+                            <p>We Accept</p>
+                            <ul class="d-flex">
+                                <li>
+                                    <a href="javascript:void(0)"><img class="img-fluid" src="img/amex-pay.svg" alt="amex"></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img class="img-fluid" src="img/apple-pay.svg" alt="pay"></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img class="img-fluid" src="img/gpay.svg" alt="gpay"></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img class="img-fluid" src="img/master.svg" alt="paycard"></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img class="img-fluid" src="img/phone.svg" alt="spay"></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img class="img-fluid" src="img/visa.svg" alt="visa"></a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <div class="footer-bottom clearfix text-center">
-            <div class="container">
-                <p>Copyright &copy; 2018. Developed by <a href="">MS Sale</a></p>
-            </div>
+
         </div>
-    </footer>
+    </div>
+
+
+    <div class="footer-bottom">
+        <div class="container">
+
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="copyright-text">
+                            <p class="mb-0">All Copyrights Reserved &copy; 2023 - Listee.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="copyright-menu">
+                            <ul class="policy-menu">
+                                <li>
+                                    <a href="privacy-policy.html">Privacy </a>
+                                </li>
+                                <li>
+                                    <a href="faq.html">Faq </a>
+                                </li>
+                                <li>
+                                    <a href="terms-condition.html">Terms</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</footer>

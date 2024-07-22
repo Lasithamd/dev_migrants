@@ -6,15 +6,16 @@
 
         <title>MS Sale</title>
 
-  <link rel="stylesheet" href="{{ asset('home/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="home/css/icofont.css" href="{{ asset('home/css/icofontcss') }}" >
-    <link rel="stylesheet"  href="{{ asset('home/css/owl.carousel.css') }}" >
-    <link rel="stylesheet"  href="{{ asset('home/css/slidr.css') }}" >
-    <link rel="stylesheet"  href="{{ asset('home/css/main.css') }}" >
-    <link id="preset" rel="stylesheet" href="{{ asset('home/css/preset1.css') }}" >
-    <link rel="stylesheet" href="{{ asset('home/css/responsive.css') }}" >
-    <link rel="stylesheet" href="{{ asset('home/css/custom.css') }}" >
+  <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/fontawesome.min.css') }}">
+    <link rel="stylesheet"href="{{ asset('front/css/all.min.css') }}" >
+    <link rel="stylesheet"  href="{{ asset('front/css/select2.min.css') }}" >
+    <link rel="stylesheet"  href="{{ asset('front/css/aos.css') }}" >
+    <link rel="stylesheet"  href="{{ asset('front/css/feather.css') }}" >
+    <link id="preset" rel="stylesheet" href="{{ asset('front/css/owl.carousel.min.css') }}" >
+    <link rel="stylesheet" href="{{ asset('front/css/style.css') }}" >
+
+  
     </head>
     <body class="antialiased">
     @include('layout.navbar')
@@ -22,17 +23,16 @@
 
     @include('layout.footer')
  
-<script src="{{ asset('home/js/jquery.min.js') }} " type="text/javascript"></script>
-<script src="{{ asset('home/js/popper.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('home/js/modernizr.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('home/js/bootstrap.min.js') }}" type="text/javascript"></script>
-<script src="https://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
-<script src="{{ asset('home/js/gmaps.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('home/js/owl.carousel.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('home/js/scrollup.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('home/js/price-range.js') }}" type="text/javascript"></script>
-<script src="{{ asset('home/js/jquery.countdown.js') }}" type="text/javascript"></script>
-<script src="{{ asset('home/js/switcher.js') }}" type="text/javascript"></script>
-<script src="{{ asset('home/js/custom.js') }}" type="text/javascript"></script>
+
+<script src="{{ asset('front/js/jquery-3.7.1.min.js') }} " type="text/javascript"></script>
+<script src="{{ asset('front/js/email-decode.min.js') }} " type="text/javascript"></script>
+<script src="{{ asset('front/js/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('front/js/select2.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('front/js/aos.js') }}" type="text/javascript"></script>
+<script src="{{ asset('front/js/backToTop.js') }}" type="text/javascript"></script>
+<script src="{{ asset('front/js/feather.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('front/js/owl.carousel.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('front/js/script.js') }}" type="text/javascript"></script>
+<script src="{{ asset('front/js/rocket-loader.min.js') }}" type="text/javascript"></script>
     </body>
 </html>
