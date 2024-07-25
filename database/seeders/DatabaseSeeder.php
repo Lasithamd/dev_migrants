@@ -27,14 +27,12 @@ class DatabaseSeeder extends Seeder
         // $this->call(CategorySeeder::class);
         // $this->call(DistrictSeeder::class);
         // $this->call(ProvinceSeeder::class);
-        //    $this->call(BrandSeeder::class);
-        //    $this->call(ModSeeder::class);
         //    $this->call(AdsSeeder::class);
         //    $this->call(ImageSeeder::class);
         // $this->call(CommentSeeder::class);
         // $this->call(CountriesSeeder::class);
         $this->call(DataSeeder::class);
-
+        // $this->call(FeaturerSeeder::class);
     
 
     }

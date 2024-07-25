@@ -8,11 +8,7 @@
             </button>
             <a class="navbar-brand" href="{{ url('/') }}"><span>Migration Sale</span></a>
             <div class="collapse navbar-collapse" id="tr-mainmenu">
-                <ul class="lang-btn">
-                    <li class="active"><a href="">සිංහල</a></li>
-                    <li><a href="">தமிழ்</a></li>
-                    <li><a href="">English</a></li>
-                </ul>
+                
                 {{-- <ul class="nav navbar-nav">
                         <li class="active dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">  English <span class="caret"></span></a>
                             <ul class="dropdown-menu">
