@@ -10,12 +10,7 @@
             </div>
             <a class="text-decoration-none navbar-brand text-left" href="/">
                 <div class="d-flex align-items-center py-3">
-                    <img
-                        class="me-2"
-                        src="/static/media/falcon.fa3b1ec66baa6b31819e.png"
-                        alt="Logo"
-                        width="40"
-                    >
+                    
                     <span class="font-sans-serif text-primary">falcon</span>
                 </div>
             </a>

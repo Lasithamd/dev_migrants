@@ -41,4 +41,18 @@ class   ImageService{
         return $image;
 
     }
+
+    public function getSingleFeaturdyImage($id){
+        $image = Image::where('ads_id', $id)->where('status',1)->get()->all();
+        return $image;
+
+    }
+    public function getSingleAdsImage($id){
+        $image['featured'] = $this->getSingleFeaturdyImage($id);
+        $image['gallery'] = $this->getGalleryImage($id)->all();
+        return $image;
+        
+     
+
+    }
 }

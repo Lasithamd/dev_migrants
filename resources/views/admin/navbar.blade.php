@@ -1,5 +1,4 @@
-
-    <nav class="navbar-vertical navbar navbar-expand-xl navbar-light">
+<nav class="navbar-vertical navbar navbar-expand-xl navbar-light">
         <div class="d-flex align-items-center">
             <div class="toggle-icon-wrapper">
                 <button type="button" id="toggleNavigationTooltip" class="navbar-toggler-humburger-icon navbar-vertical-toggle btn btn-link">
@@ -17,6 +16,8 @@
         </div>
         <div class="navbar-collapse collapse" style="background-image: none;">
             <div class="navbar-vertical-content scrollbar">
+                <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+                   
                 <ul class="flex-column navbar-nav">
                     <li class="nav-item">
                         <a
@@ -55,7 +56,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/app/calendar">
+                        <a class="nav-link" href="{{ url('admin/ads')}}">
                             <div class="d-flex align-items-center">
                                 <span class="nav-link-icon">
                                     <svg
@@ -235,31 +236,9 @@
                             
                         </ul>
                     </li>
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.skill') }}">
-
-                            <div class="d-flex align-items-center">
-                                <span class="nav-link-icon">
-                                    <svg
-                                        aria-hidden="true"
-                                        focusable="false"
-                                        data-prefix="fas"
-                                        data-icon="table"
-                                        class="svg-inline--fa fa-table fa-w-16 "
-                                        role="img"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 512 512"
-                                    >
-                                        <path fill="currentColor" d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64v-96h160v96zm0-160H64v-96h160v96zm224 160H288v-96h160v96zm0-160H288v-96h160v96z"></path>
-                                    </svg>
-                                </span>
-                                <span class="nav-link-text ps-1">Skills</span>
-                            </div>
-                        </a>
-                     
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.education') }}">
+                        <a class="nav-link" href="">
 
                             <div class="d-flex align-items-center">
                                 <span class="nav-link-icon">
@@ -282,7 +261,7 @@
                        
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.institute') }}">
+                        <a class="nav-link" href="">
 
                             <div class="d-flex align-items-center">
                                 <span class="nav-link-icon">
@@ -383,29 +362,7 @@
                     </li>
                 </ul>
                 
-                <div class="settings my-3">
-                    <div class="p-0 rounded-2 position-relative card">
-                        <div class="position-absolute" style="right: 6px; top: 3px;">
-                            <button type="button" class="btn-close btn btn-sm outline-none fs-11" aria-label="Close"></button>
-                        </div>
-                        <div class="text-center card-body">
-                            <img src="/static/media/navbar-vertical.8de69786a0d57b17ffdc.png" alt="" width="80">
-                            <p class="fs-11 mt-2">Loving what you see?
-                                <br>Get your copy of
-                                <a href="/#!">Falcon</a>
-                            </p>
-                            <div class="d-grid gap-2">
-                                <a
-                                    role="button"
-                                    tabindex="0"
-                                    href="https://themes.getbootstrap.com/product/falcon-admin-dashboard-webapp-template-react/"
-                                    target="_blank"
-                                    class="btn-primary btn btn-primary btn-sm"
-                                >Purchase</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </nav>   <!-- Waste no more time arguing what a good man should be, be one. - Marcus Aurelius -->

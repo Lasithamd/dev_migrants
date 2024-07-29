@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Ads;
 use App\Models\Comment;
+use App\Models\User;
+use App\Models\Image;
 use Exception;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Database\Eloquent\Model;
@@ -33,13 +35,26 @@ class   AdsService{
         ->leftJoin('categories', 'categories.id', '=', 'ads.category_id')
         ->leftJoin('sub_categories', 'sub_categories.id', '=', 'ads.sub_category_id')
         ->leftJoin('cities', 'cities.id', '=', 'ads.city_id')
-        ->select('ads.*', 'categories.name as cname', 'sub_categories.name as subname')
+        ->leftJoin('users', 'users.id', '=', 'ads.user_id')
+        ->select('ads.*', 'categories.name as cname', 'sub_categories.name as subname','users.name as uname','users.email')
         ->where('ads.id', '=', $id)->first();
 
        
         return  $ads;
 
     }
+    public function getACommentSingle(int $id){
+        
+        // return Comment::where('ads_id',$id)->get();
+        return DB::table('comments')
+        ->leftJoin('users', 'users.id', '=', 'comments.user_id')
+        ->select('users.*', 'comments.comment')
+        ->where('comments.ads_id', '=', $id)->get();
+    }
+        
+
+
+   
     
     
     public function getSingleAd(int $id){
@@ -98,27 +113,6 @@ class   AdsService{
 
         print_r( $id+'sdsd'); die();
     }
-    public function sendAIRequest(Request $data)
-    {
-        $client = new \GuzzleHttp\Client();
-
-        try {
-            $response = $client->request('POST', 'https://api.openai.com/v1/chat/completions', [
-                'headers' => [
-                    'Authorization' => 'Bearer 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',
-                    'Content-Type' => 'application/json',
-                ],
-                'json' => [
-                    'model' => 'gpt-3.5-turbo',
-                    'temperature' => 0.7,
-                    'messages' => [['role' => 'user', 'content' => $data->message]],
-                ],
-            ]);
-        }
-        catch(Exception $e){
-            
-        }
-    }
 
     public function getComments($id){
 
@@ -176,4 +170,7 @@ class   AdsService{
         ->count();
         return $comments;
     }
+
+   
+
 }

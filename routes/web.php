@@ -47,4 +47,4 @@ Route::get('/profile', [UserController::class,'show'])->name('profile');
 Route::get('/profile/update', [UserController::class,'update'])->name('profile.update');
 Route::get('/comment', [CommentController::class, 'index'])->name('comment');
 
-
+// Admin route

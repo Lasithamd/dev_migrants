@@ -43,6 +43,16 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'admin' => [
+            // \App\Http\Middleware\Authenticate::class,
+            // \App\Http\Middleware\CheckAdminRole::class,
+            \App\Http\Middleware\VerifyCsrfToken::class,
+            \Illuminate\Cookie\Middleware\EncryptCookies::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \App\Http\Middleware\TrimStrings::class,
+            // \App\Http\Middleware\ConvertEmptyStringsToNull::class,
+        ],
     ];
 
     /**
